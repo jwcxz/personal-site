@@ -3,11 +3,18 @@
 #
 .*.sw*
 
+
 #
 # build outputs
 #
 build
 out
+
+
+#
+# python
+#
+*.pyc
 
 
 #

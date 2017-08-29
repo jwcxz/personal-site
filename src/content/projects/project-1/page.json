@@ -1,0 +1,17 @@
+{
+    "template": "default",
+
+    "content": [
+        {
+            "key": "title",
+            "type": "string",
+            "value": "Example Page Title"
+        },
+
+        {
+            "key": "body",
+            "type": "file",
+            "value": "body.md"
+        }
+    ]
+}
