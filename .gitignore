@@ -3,6 +3,12 @@
 #
 .*.sw*
 
+#
+# build outputs
+#
+build
+out
+
 
 #
 # node.js
