@@ -1,17 +1,15 @@
 {
     "template": "default",
 
-    "content": [
-        {
-            "key": "title",
+    "content": {
+        "title": {
             "type": "string",
             "value": "Example Page Title"
         },
 
-        {
-            "key": "body",
+        "body": {
             "type": "file",
-            "value": "body.md"
+            "value": "body"
         }
-    ]
+    }
 }

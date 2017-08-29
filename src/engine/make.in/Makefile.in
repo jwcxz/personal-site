@@ -16,5 +16,5 @@ include $(DIR_MAKE)/config.mk
 include $(DIR_MAKE)/console.mk
 include $(DIR_MAKE)/files.mk
 include $(DIR_MAKE)/tools.mk
-include $(DIR_MAKE)/recipes.mk
 include $(DIR_MAKE)/actions.mk
+include $(DIR_MAKE)/recipes.mk

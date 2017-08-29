@@ -2,6 +2,7 @@ import sys
 
 from assembler import Assembler
 
+
 class Command:
     command_name = None;
     metadata = None;
@@ -28,6 +29,7 @@ class Command:
     def set_search_dirs(self, search_dirs):
         self.search_dirs = search_dirs;
 
+
 class CommandDefault(Command):
     command_name = 'default';
 
@@ -36,9 +38,28 @@ class CommandDefault(Command):
         # TODO: exit?
         return "";
 
+
 class CommandContent(Command):
+    def __init__(self, metadata=None, search_dirs=None):
+        Command.__init__(self, metadata=metadata, search_dirs=search_dirs);
+
     def execute(self, arglist):
-        return "content";
+        key = arglist[0];
+
+        if key not in self.metadata['content']:
+            # TODO: warning?
+            return "";
+
+        c = self.metadata['content'][key];
+
+        # TODO: build more elegant content replacement backend
+        if c['type'] == 'string':
+            return c['value'];
+        elif c['type'] == 'file':
+            filename = "%s.frag.html" % c['value'];
+            a = Assembler(metadata=self.metadata, search_dirs=self.search_dirs);
+            return a.populate_template(filename);
+
 
 class CommandRequire(Command):
     def execute(self, arglist):
