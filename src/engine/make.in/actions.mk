@@ -1,11 +1,14 @@
 $(call mk_pre)
 
-all: $(OUT_PAGE_FILES)
+all: all-targets
 
 clean:
 	$(call msg_info,Cleaning...)
 	$(LC)$(T_RM) $(DIR_BUILD) $(LL)
 	$(LC)$(T_RM) $(DIR_OUT) $(LL)
+
+
+all-targets: $(OUT_PAGE_FILES) $(OUT_STATIC_CONTENT)
 
 
 pv-%:

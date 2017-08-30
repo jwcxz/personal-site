@@ -74,7 +74,7 @@ msg_wrn  = @echo -e $(COL_WRN)$(1)$(COL_CLR) > /dev/stderr
 msg_err  = @echo -e $(COL_ERR)$(1)$(COL_CLR) > /dev/stderr
 
 
-msg_gen = $(call msg_info,Generating $(COL_GEN)$(1)$(COL_CLR)...)
+msg_gen = $(call msg_info,\\nGenerating $(COL_GEN)$(1)$(COL_CLR)...)
 
 msg_var = $(call msg_info,$(COL_VAR_NAME)$(1)$(COL_CLR) = $(COL_VAR_VAL)$($(1)))
 msg_var_val_only = $(call msg_info,$(COL_VAR_VAL)$($(1)))
