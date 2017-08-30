@@ -8,6 +8,9 @@ mk_this = $(firstword $(MAKEFILE_STACK))
 mk_this_dir = $(dir $(call mk_this))
 mk_this_file = $(notdir $(call mk_this))
 
+MK_INFRA_PREREQS := $(shell find $(DIR_SRC) -name "*.mk")
+mk_add_infra_prereq = $(eval MK_INFRA_PREREQS += $1)
+
 define mk_pre =
 $(call mk_mkstk_push)
 endef

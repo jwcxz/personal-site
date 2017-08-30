@@ -15,6 +15,8 @@ mk_add_frag = $(call mk_add_frag_bn,$(patsubst %.$1,%,$(call mk_find_frag,$1)))
 $(call mk_post)
 
 
+MK_INFRA_PREREQS := $(shell find $(DIR_SRC) -name "*.mk")
+
 BUILD_FRAG_FILES := $(addsuffix .frag.html,$(FRAG_FILES_BN:$(DIR_CONTENT)%=$(DIR_BUILD_FRAG)%))
 
 OUT_PAGE_FILES := $(addsuffix $(PAGE_FILE),$(dir $(PAGE_METADATA_FILES:$(DIR_CONTENT)%=$(DIR_OUT)%)))
