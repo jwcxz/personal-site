@@ -114,9 +114,9 @@ for that command.
 
 The following commands shall be supported:
 
-    - `require`: Replace command with the contents of a specified file
-        - `ARG0`: File name (searched for in all search directories)
+- `require`: Replace command with the contents of a specified file
+    - `ARG0`: File name (searched for in all search directories)
 
-    - `content`: Replace command with the value of the specified key from
-      `page.json`
-        - `ARG0`: Key
+- `content`: Replace command with the value of the specified key from
+    `page.json`
+    - `ARG0`: Key
