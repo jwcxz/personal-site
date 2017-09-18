@@ -1,6 +1,7 @@
 $(call mk_pre)
 
 DIR_CONTENT := $(DIR_SRC)/content
+DIR_TEMPLATES := $(DIR_ENGINE)/templates
 
 PAGE_METADATA := page.json
 PAGE_METADATA_FILES := $(shell find $(DIR_CONTENT) -name $(PAGE_METADATA))
@@ -21,7 +22,8 @@ endef
 $(call mk_post)
 
 
-MK_INFRA_PREREQS := $(shell find $(DIR_SRC) -name "*.mk")
+$(call mk_add_infra_prereq,$(shell find $(DIR_SRC) -name "*.mk"))
+$(call mk_add_infra_prereq,$(shell find $(DIR_TEMPLATES) -name "*.html"))
 
 BUILD_FRAG_FILES := $(addsuffix .frag.html,$(FRAG_FILES_BN:$(DIR_CONTENT)%=$(DIR_BUILD_FRAG)%))
 
