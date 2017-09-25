@@ -18,7 +18,7 @@ Sed accumsan neque ex, vitae ornare nunc mattis vel. Vivamus rutrum neque tellus
 
 * List item 1
     * Sub-item 1
-    * sub-item 2
+    * Sub-item 2
 * List item 2
 * List item 3
 
