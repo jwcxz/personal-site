@@ -1,7 +1,7 @@
-[[toc]]
-
 Test Title
 ==========
+
+[[toc]]
 
 ## Section
 

@@ -1,4 +1,30 @@
+/* TODO: replace with local copy */
+@font-face {
+    font-family: "Computer Modern";
+    src: url('http://spratt.github.io/Computer-Modern/cmunss.otf');
+}
+
+@font-face {
+    font-family: "Computer Modern";
+    src: url('http://spratt.github.io/Computer-Modern/cmunsx.otf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Computer Modern";
+    src: url('http://spratt.github.io/Computer-Modern/cmunsi.otf');
+    font-style: italic, oblique;
+}
+
+@font-face {
+    font-family: "Computer Modern";
+    src: url('http://spratt.github.io/Computer-Modern/cmunbxo.otf');
+    font-weight: bold;
+    font-style: italic, oblique;
+}
+
 body {
+    font-family: "Computer Modern", serif;
 }
 
 /* Customize container */
@@ -61,6 +87,7 @@ body {
 
 .footer-item-right {
     text-align: right;
+    color: #AAAAAA;
 }
 
 
@@ -109,6 +136,7 @@ h6:before {
 }
 
 
+/* from: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters */
 .table-of-contents ol {
     counter-reset: section;
     list-style-type: none;
