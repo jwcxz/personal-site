@@ -10,6 +10,11 @@
 build
 out
 
+#
+# tags
+#
+tags
+
 
 #
 # python
