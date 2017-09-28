@@ -1,0 +1,16 @@
+{
+    "template": "note",
+
+    "content": {
+        "title": {
+            "type": "string",
+            "value": "Example Post Title"
+        },
+
+        "body": {
+            "type": "file",
+            "value": "body"
+        }
+    }
+}
+

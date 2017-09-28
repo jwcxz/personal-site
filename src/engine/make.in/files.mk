@@ -19,13 +19,15 @@ $(call mk_add_frag_fn,$(TMP_FRAG_FILES))
 $(call mk_add_frag_bn,$(patsubst %.$1,%,$(TMP_FRAG_FILES)))
 endef
 
+BUILD_FRAG_FILES :=
+
 $(call mk_post)
 
 
 $(call mk_add_infra_prereq,$(shell find $(DIR_SRC) -name "*.mk"))
 $(call mk_add_infra_prereq,$(shell find $(DIR_TEMPLATES) -name "*.html"))
 
-BUILD_FRAG_FILES := $(addsuffix .frag.html,$(FRAG_FILES_BN:$(DIR_CONTENT)%=$(DIR_BUILD_FRAG)%))
+BUILD_FRAG_FILES += $(addsuffix .frag.html,$(FRAG_FILES_BN:$(DIR_CONTENT)%=$(DIR_BUILD_FRAG)%))
 
 OUT_PAGE_FILES := $(addsuffix $(PAGE_FILE),$(dir $(PAGE_METADATA_FILES:$(DIR_CONTENT)%=$(DIR_OUT)%)))
 
