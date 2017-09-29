@@ -1,3 +1,5 @@
+$(call mk_pre)
+
 ifndef DIR_BUILD
 DIR_BUILD := $(DIR_ROOT)/build
 endif
@@ -7,3 +9,5 @@ DIR_OUT := $(DIR_ROOT)/out
 endif
 
 DIR_BUILD_FRAG := $(DIR_BUILD)/frag
+
+$(call mk_post)

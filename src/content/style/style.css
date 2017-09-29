@@ -152,3 +152,12 @@ h6:before {
     counter-increment: section;
     content: counters(section, ".") ". ";
 }
+
+
+.notes-mc-topbar-left {
+    text-align: left;
+}
+
+.notes-mc-topbar-right {
+    text-align: right;
+}
