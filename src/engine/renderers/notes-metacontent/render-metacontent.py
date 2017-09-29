@@ -37,7 +37,18 @@ def render_topbar(nl, cur_note):
 
 
 def render_sidebar(nl, cur_note):
-    return "";
+    output = """
+<ul>
+    <li>Link</li>
+    <li>Link</li>
+    <li>Link</li>
+    <li>Link</li>
+    <li>Link</li>
+    <li>Link</li>
+</ul>
+""";
+
+    return output;
 
 
 if __name__ == "__main__":

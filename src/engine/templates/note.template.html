@@ -13,10 +13,18 @@
     <body>
         <!--__require:body_pre.frag.html-->
 
-        <div id="content" class="container">
-            <!--__require:sidebar.frag.html-->
-            <!--__require:topbar.frag.html-->
-            <!--__content:body-->
+        <div id="content" class="container container-notes">
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-10 notes-content">
+                    <!--__require:topbar.frag.html-->
+                    <!--__content:body-->
+                </div>
+                <div class="col-sm-1 notes-sidebar">
+                    <!--__require:sidebar.frag.html-->
+                </div>
+            </div>
         </div>
 
         <!--__require:body_post.frag.html-->

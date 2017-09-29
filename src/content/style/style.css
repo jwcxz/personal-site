@@ -27,10 +27,15 @@ body {
     font-family: "Computer Modern", serif;
 }
 
-/* Customize container */
-@media (min-width: 48em) {
+@media (min-width: 52em) {
     .container {
-        max-width: 46rem;
+        max-width: 50rem;
+    }
+}
+
+@media (min-width: 64.5em) {
+    .container-notes {
+        max-width: 62.5rem;
     }
 }
 
