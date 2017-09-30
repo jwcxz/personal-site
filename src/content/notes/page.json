@@ -1,0 +1,11 @@
+{
+    "template": "note-metapage",
+
+    "content": {
+        "title": {
+            "type": "string",
+            "value": "Notes"
+        }
+    }
+}
+

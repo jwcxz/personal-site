@@ -8,4 +8,14 @@ endef
 
 $(foreach type,$(NOTES_MC_TYPES),$(eval $(call notes_mc_template,$(type))))
 
+
+$(NOTES_METAPAGE_INDEX): $(ALL_NOTES) $(MK_INFRA_PREREQS)
+	$(call msg_gen,$@)
+	$(LC)mkdir -p $(dir $@) $(LL)
+	$(LC)$(T_RENDER_NOTESMP) -o $@ -t index $(DIR_NOTES) $(LL)
+
+
+
 $(DIR_OUT)/notes/%/$(PAGE_FILE): $(ALL_NOTES_METACONTENT)
+
+$(DIR_OUT)/notes/$(PAGE_FILE): $(NOTES_METAPAGE_INDEX)

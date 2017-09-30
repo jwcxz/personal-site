@@ -51,11 +51,25 @@ def render_sidebar(nl, cur_note):
     return output;
 
 
+def render_index(nl, _):
+    clist = nl.get_chronological_list();
+    clist.reverse();
+
+    clist_str = clist.join("</li><li>");
+
+    output = """
+<ul>
+    <li>%s</li>
+</ul>""" % clist_str;
+
+    return output;
+
+
 if __name__ == "__main__":
 
     import argparse, sys
 
-    ap = argparse.ArgumentParser('A utility to assemble notes topbar metacontent');
+    ap = argparse.ArgumentParser('A utility to assemble notes metacontent');
 
     ap.add_argument(
             '-o', '--output',

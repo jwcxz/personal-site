@@ -34,7 +34,16 @@ class NotesList:
     def __init__(self, notes_dir):
         self.notes_dir = notes_dir;
 
-        self.note_dirs = os.listdir(self.notes_dir);
+        nds = os.listdir(self.notes_dir);
+        self.note_dirs = [];
+        for nd in nds:
+            try:
+                # TODO: don't rely on date being interpreted as an integer
+                _ = int(nd.split('-')[0]);
+                self.note_dirs.append(nd);
+            except:
+                continue;
+
         # TODO: use less cheap chronological sorting that only works because it
         # takes advantage of the date format
         self.note_dirs.sort();
@@ -58,4 +67,8 @@ class NotesList:
             return self.notes[self.note_dirs[i+1]];
 
     def get_chronological_list(self):
-        pass;
+        note_list = [];
+        for n in self.note_dirs:
+            note_list.append(self.notes[n]);
+
+        return note_list;
