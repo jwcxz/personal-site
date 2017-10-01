@@ -11,7 +11,12 @@ def render_index(nl):
     clist = nl.get_chronological_list();
     clist.reverse();
 
-    cls = [ "<a href=\"%s\">%s (%s)</a>" % (c.get_link(), c.get_title(), datetime.datetime.strftime(c.get_date(), '%Y-%m-%d')) for c in clist ];
+    cls = [ "<p><a href=\"%s\">%s (%s)</a></p><p>%s</p>" %
+            (c.get_link(),
+                c.get_title(),
+                datetime.datetime.strftime(c.get_date(), '%Y-%m-%d'),
+                c.get_content_preview())
+            for c in clist ];
     clist_str = "</li><li>".join(cls);
 
     output = """
@@ -45,6 +50,15 @@ if __name__ == "__main__":
             );
 
     ap.add_argument(
+            '-c', '--content-dir',
+            dest='contentdir',
+            metavar='CONTENTDIR',
+            type=str,
+            required=True,
+            help="location of rendered notes content"
+            );
+
+    ap.add_argument(
             'notesdir',
             metavar='NOTESDIR',
             type=str,
@@ -59,7 +73,7 @@ if __name__ == "__main__":
         sys.exit(1);
 
 
-    nl = NotesList(args.notesdir);
+    nl = NotesList(args.notesdir, content_dir=args.contentdir);
 
     if args.mctype == 'index':
         render_fn = render_index;
