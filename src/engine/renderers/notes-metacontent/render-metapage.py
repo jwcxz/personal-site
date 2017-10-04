@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 
 import datetime
-from notes import Note, NotesList
+from notes.notes import Note, NotesList
 
 
 output_types = ['index'];
@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
     import argparse, sys
 
-    ap = argparse.ArgumentParser('A utility to assemble notes metapages');
+    ap = argparse.ArgumentParser(description='A utility to assemble notes metapages');
 
     ap.add_argument(
             '-o', '--output',

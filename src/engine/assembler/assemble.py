@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     import argparse, sys
 
-    ap = argparse.ArgumentParser('A utility to assemble an HTML page from parts');
+    ap = argparse.ArgumentParser(description='A utility to assemble an HTML page from parts');
 
     ap.add_argument(
             '-o', '--output',

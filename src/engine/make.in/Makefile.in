@@ -5,6 +5,7 @@ endif
 DIR_SRC    := $(DIR_ROOT)/src
 DIR_ENGINE := $(DIR_SRC)/engine
 DIR_MAKE   := $(DIR_ENGINE)/make.in
+DIR_COMMON := $(DIR_ENGINE)/common
 DIR_GENERATORS := $(DIR_ENGINE)/generators
 DIR_RENDERERS := $(DIR_ENGINE)/renderers
 DIR_ASSEMBLER := $(DIR_ENGINE)/assembler
@@ -16,7 +17,7 @@ RENDERERS := html-frag markdown notes-metacontent
 include $(DIR_MAKE)/macros.mk
 include $(DIR_MAKE)/config.mk
 include $(DIR_MAKE)/console.mk
-include $(DIR_MAKE)/files.mk
 include $(DIR_MAKE)/tools.mk
+include $(DIR_MAKE)/files.mk
 include $(DIR_MAKE)/actions.mk
 include $(DIR_MAKE)/recipes.mk
