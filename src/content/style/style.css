@@ -116,11 +116,6 @@ h2:before {
     content: counter(h2counter) ".\0000a0\0000a0";
 }
 
-h2.nocounter:before {
-    counter-increment: none;
-    content: none;
-}
-
 h3:before {
     counter-increment: h3counter;
     content: counter(h2counter) "."
@@ -149,6 +144,12 @@ h6:before {
                 counter(h4counter) "."
                 counter(h5counter) "."
                 counter(h6counter) ".\0000a0\0000a0";
+}
+
+.nocounter { counter-reset: none }
+.nocounter:before {
+    counter-increment: none;
+    content: none;
 }
 
 
