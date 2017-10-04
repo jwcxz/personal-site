@@ -7,22 +7,25 @@ from notes import Note, NotesList
 output_types = ['index'];
 
 
+note_preview_template = """
+<div class="note-preview">
+    <h2 class="nocounter"><a href="%s">%s (%s)</a></h2>
+    %s
+</div>""";
+
+
 def render_index(nl):
     clist = nl.get_chronological_list();
     clist.reverse();
 
-    cls = [ "<p><a href=\"%s\">%s (%s)</a></p><p>%s</p>" %
-            (c.get_link(),
-                c.get_title(),
-                datetime.datetime.strftime(c.get_date(), '%Y-%m-%d'),
-                c.get_content_preview())
-            for c in clist ];
-    clist_str = "</li><li>".join(cls);
+    note_previews = [];
+    for note in clist:
+        note_previews.append( note_preview_template % (note.get_link(),
+                note.get_title(),
+                datetime.datetime.strftime(note.get_date(), '%Y-%m-%d'),
+                note.get_content_preview()) );
 
-    output = """
-<ul>
-    <li>%s</li>
-</ul>""" % clist_str;
+    output = "\n<hr>\n".join(note_previews);
 
     return output;
 
