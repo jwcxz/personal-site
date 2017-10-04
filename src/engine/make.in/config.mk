@@ -8,6 +8,7 @@ ifndef DIR_OUT
 DIR_OUT := $(DIR_ROOT)/out
 endif
 
+DIR_BUILD_PAGE := $(DIR_BUILD)/page
 DIR_BUILD_FRAG := $(DIR_BUILD)/frag
 
 $(call mk_post)

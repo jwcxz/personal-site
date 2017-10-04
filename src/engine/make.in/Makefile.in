@@ -5,11 +5,13 @@ endif
 DIR_SRC    := $(DIR_ROOT)/src
 DIR_ENGINE := $(DIR_SRC)/engine
 DIR_MAKE   := $(DIR_ENGINE)/make.in
+DIR_GENERATORS := $(DIR_ENGINE)/generators
 DIR_RENDERERS := $(DIR_ENGINE)/renderers
 DIR_ASSEMBLER := $(DIR_ENGINE)/assembler
 
 # TODO: move
-RENDERERS = html-frag markdown notes-metacontent
+GENERATORS := notes-index
+RENDERERS := html-frag markdown notes-metacontent
 
 include $(DIR_MAKE)/macros.mk
 include $(DIR_MAKE)/config.mk

@@ -18,6 +18,7 @@ HTML output and copying static content to `out/`.
     - `content/`: site content
     - `engine/`: core rendering and assembly engine
         - `make.in/`: makefiles
+        - `generators`: generators
         - `renderers/`: renderers
         - `assembler/`: page assembler
         - `templates/`: page templates
@@ -34,23 +35,45 @@ created in the output directory.  Assembled material shall be placed in the
 analogous directory to that of its source material.
 
 
-## Rendering and Assembly
+## Generation, Rendering and Assembly
 
-The build system shall produce HTML pages through two phases:
+The build system shall produce HTML pages through three phases:
 
-1.  It shall walk through the source directory to find _source fragments_.  It shall
-    render these source fragments to _HTML fragments_, storing them to
-    analogous directories in `build/frag/`.
+1.  It shall use _generators_ to generate any _virtual_ pages: pages that are
+    dynamically created based on underlying system content.
+
+1.  It shall walk through the source directory to find _source fragments_.  It
+    shall render these source fragments to _HTML fragments_, storing them to
+    analogous directories in `build/frag/`.  In some cases, source fragments
+    are virtual as well in that their content is based on underlying system
+    content.
 
 2.  It shall use the presence of a `page.json` file within a given source
     directory to assemble any relevant fragments into an HTML page from a
-    desired template.
+    desired template.  In some cases, this source directory is the static
+    content directly.  In other cases, it is the directory containing virtual
+    page specifications.
+
+
+### Generators
+
+In some cases, entire page specifications should be produced dynamically based
+on underlying content (e.g. paginated index pages).  Generators shall provide
+the capability to specify dynamically-generated pages.  Generators shall be
+located in `src/engine/generators`.
+
 
 ### Renderers
 
 The build system shall automatically identify source fragments to render from
 their file extension.  Each rendering backend located in `src/engine/renderers`
 shall register extensions it can render and one or more rendering recipes.
+
+A renderer may also be purely virtual in that it does not depend on specific
+sources from the content directory.  Instead, it may specify a list of
+fragments that it will produce and a set of custom recipes for producing those
+targets.
+
 
 ### `page.json` Contents
 

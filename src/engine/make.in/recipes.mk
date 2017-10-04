@@ -14,3 +14,9 @@ $(DIR_OUT)/%/$(PAGE_FILE): $(DIR_CONTENT)/%/$(PAGE_METADATA) $$(filter $$(patsub
 	$(call msg_gen,$@)
 	$(LC)mkdir -p $(dir $@) $(LL)
 	$(LC)$(T_ASSEMBLE) -o $@ $(addprefix -d ,$(dir $(filter-out $(MK_INFRA_PREREQS),$(addprefix $(DIR_ROOT)/,$(filter-out $<, $^))))) $< $(LL)
+
+# TODO: merge this with previous recipe
+$(DIR_OUT)/%/$(PAGE_FILE): $(DIR_BUILD_PAGE)/%/$(PAGE_METADATA) $$(filter $$(patsubst $(DIR_OUT)$$(WC),$(DIR_BUILD_FRAG)$$(WC),$$(DIR_ROOT)/$$(dir $$@))$$(WC),$(BUILD_FRAG_FILES)) $(MK_INFRA_PREREQS)
+	$(call msg_gen,$@)
+	$(LC)mkdir -p $(dir $@) $(LL)
+	$(LC)$(T_ASSEMBLE) -o $@ $(addprefix -d ,$(dir $(filter-out $(MK_INFRA_PREREQS),$(addprefix $(DIR_ROOT)/,$(filter-out $<, $^))))) $< $(LL)
