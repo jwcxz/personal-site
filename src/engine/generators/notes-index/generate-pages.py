@@ -131,7 +131,7 @@ if __name__ == "__main__":
 
         pagination += make_page_button(p, base_url + "%d" % p, active=p_active);
 
-    if page_arg == num_pages+1:
+    if page_arg == num_pages:
         next_link = '#';
         next_d = True;
     else:
