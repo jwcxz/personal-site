@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 
 from notes.notes import Note, NotesList
-from renderutils import encode_for_json, make_page_navbar
+from uitools.renderutils import encode_for_json, make_page_navbar
 
 
 page_template = """
