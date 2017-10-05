@@ -27,20 +27,49 @@ page_template = """
 """;
 
 
-def render_index(nl):
-    clist = nl.get_chronological_list();
-    clist.reverse();
+base_url = '/notes/page/';
 
-    note_previews = [];
-    for note in clist:
-        note_previews.append( note_preview_template % (note.get_link(),
-                note.get_title(),
-                datetime.datetime.strftime(note.get_date(), '%Y-%m-%d'),
-                note.get_content_preview()) );
 
-    output = "\n<hr>\n".join(note_previews);
+def make_page_button(label, link, active=False, disabled=False, aria_label=None, sr_hide=False, sr_label=None):
 
-    return output;
+    if active:
+        li_active = ' active';
+        sr_label = '(current)';
+    else:
+        li_active = '';
+
+    if disabled:
+        li_disabled = ' disabled';
+        a_disabled = r' tabindex=\"-1\"';
+        a_url = '#';
+    else:
+        li_disabled = '';
+        a_disabled = '';
+        a_url = link;
+
+    if aria_label:
+        a_aria = r' aria-label=\"' + aria_label + r'\"';
+    else:
+        a_aria = '';
+
+    if sr_hide:
+        label = r'<span aria-hidden=\"true\">' + label + '</span>';
+
+    if sr_label:
+        span_sr_label = r'<span class=\"sr-only\">' + sr_label + '</span>';
+    else:
+        span_sr_label = '';
+
+    output = r"""
+<li class=\"page-item%s%s\">
+    <a class=\"page-link\" href=\"%s\"%s%s>
+        %s %s
+    </a>
+</li>
+""" % (li_active, li_disabled, a_url, a_disabled, a_aria, label, span_sr_label);
+
+    return output
+
 
 
 if __name__ == "__main__":
@@ -83,16 +112,37 @@ if __name__ == "__main__":
     all_notes = nl.get_chronological_list();
     num_pages = int(math.ceil(len(all_notes)/float(notes_per_page)));
 
-    pagination = r"""<nav aria-label=\"Page navigation example\"><ul class=\"pagination\">""";
+    pagination = r"""<nav aria-label=\"Notes Pages\"><ul class=\"pagination justify-content-center\">""";
+
+    if page_arg == 1:
+        prev_link = '#';
+        prev_d = True;
+    else:
+        prev_link = base_url + "%d" % (page_arg-1);
+        prev_d = False;
+
+    pagination += make_page_button('&laquo;', prev_link, disabled=prev_d, aria_label='Previous', sr_hide=True, sr_label='Previous');
+
     for p in xrange(1, num_pages+1):
         if p == page_arg:
-            active = " active";
+            p_active = True;
         else:
-            active = "";
+            p_active = False;
 
-        pagination += r"""<li class=\"page-item%s\"><a class=\"page-link\" href=\"/notes/page/%d\">%d</a></li>""" % (active, p, p);
+        pagination += make_page_button(p, base_url + "%d" % p, active=p_active);
+
+    if page_arg == num_pages+1:
+        next_link = '#';
+        next_d = True;
+    else:
+        next_link = base_url + "%d" % (page_arg+1);
+        next_d = False;
+
+    pagination += make_page_button('&raquo;', next_link, disabled=next_d, aria_label='Next', sr_hide=True, sr_label='Next');
 
     pagination += "</ul></nav>";
+
+    pagination = pagination.replace("\n","");
 
     page_spec = page_template % pagination;
 
