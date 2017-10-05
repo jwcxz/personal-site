@@ -94,6 +94,8 @@ class NotesList:
     def get_rev_chronological_list(self, lrange=None):
         if not lrange:
             lrange = (0, len(self.note_dirs));
+        else:
+            lrange = (max(0, lrange[0]), min(lrange[1], len(self.note_dirs)));
 
         note_list = [];
         for ni in xrange(lrange[0], lrange[1]):
