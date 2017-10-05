@@ -33,9 +33,9 @@ body {
     }
 }
 
-@media (min-width: 82em) {
+@media (min-width: 102em) {
     .container-notes {
-        max-width: 80rem;
+        max-width: 100rem;
     }
 }
 
