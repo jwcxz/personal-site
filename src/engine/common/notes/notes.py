@@ -48,8 +48,7 @@ class Note:
 
 
 class NotesList:
-    # TODO: set to 10
-    notes_per_page = 2;
+    notes_per_page = 15;
 
     def __init__(self, notes_dir, content_dir=None):
         self.notes_dir = notes_dir;
