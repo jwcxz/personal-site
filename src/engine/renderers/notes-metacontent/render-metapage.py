@@ -4,7 +4,7 @@ import datetime
 from notes.notes import Note, NotesList
 
 
-output_types = ['index'];
+output_types = ['page'];
 
 
 note_preview_template = """
@@ -14,9 +14,8 @@ note_preview_template = """
 </div>""";
 
 
-def render_index(nl):
-    clist = nl.get_chronological_list();
-    clist.reverse();
+def render_page(nl, page_num):
+    clist = nl.get_rev_chronological_list_by_page(page_num);
 
     note_previews = [];
     for note in clist:
@@ -44,12 +43,12 @@ if __name__ == "__main__":
             );
 
     ap.add_argument(
-            '-t', '--type',
-            dest='mctype',
+            '-i', '--id',
+            dest='id',
             metavar='TYPE',
             type=str,
             required=True,
-            help=("type of metacontent to render (%s)" % ", ".join(output_types)),
+            help='identifier of page to render',
             );
 
     ap.add_argument(
@@ -58,30 +57,32 @@ if __name__ == "__main__":
             metavar='CONTENTDIR',
             type=str,
             required=True,
-            help="location of rendered notes content"
+            help="Location of rendered notes content"
             );
 
     ap.add_argument(
             'notesdir',
             metavar='NOTESDIR',
             type=str,
-            help='location of notes'
+            help='Location of notes'
             );
 
     args = ap.parse_args();
 
+    page_type, page_arg = args.id.split('/');
+    page_arg = int(page_arg);
 
-    if args.mctype not in output_types:
-        sys.stderr.write("Error: unrecognized output type %s" % args.mctype);
+    if page_type not in output_types:
+        sys.stderr.write("Error: unrecognized output type %s" % page_type);
         sys.exit(1);
 
 
     nl = NotesList(args.notesdir, content_dir=args.contentdir);
 
-    if args.mctype == 'index':
-        render_fn = render_index;
+    if page_type == 'page':
+        render_fn = render_page;
 
-    rendered_frag = render_fn(nl);
+    rendered_frag = render_fn(nl, page_arg);
 
     if args.output:
         fd = open(args.output, 'w');

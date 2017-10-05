@@ -4,10 +4,6 @@ import math
 from notes.notes import NotesList
 
 
-# TODO: set to 10
-notes_per_page = 2;
-
-
 if __name__ == "__main__":
 
     import argparse, sys
@@ -23,11 +19,8 @@ if __name__ == "__main__":
 
     args = ap.parse_args();
 
-
     nl = NotesList(args.notesdir);
-
-    all_notes = nl.get_chronological_list();
-    num_pages = int(math.ceil(len(all_notes)/float(notes_per_page)));
+    num_pages = nl.get_num_pages();
 
     pages = [ "page/%d" % i for i in xrange(1, num_pages+1) ];
     sys.stdout.write(" ".join(pages));

@@ -1,5 +1,6 @@
 import datetime
 import json
+import math
 import os
 
 
@@ -47,6 +48,9 @@ class Note:
 
 
 class NotesList:
+    # TODO: set to 10
+    notes_per_page = 2;
+
     def __init__(self, notes_dir, content_dir=None):
         self.notes_dir = notes_dir;
 
@@ -63,6 +67,7 @@ class NotesList:
         # TODO: use less cheap chronological sorting that only works because it
         # takes advantage of the date format
         self.note_dirs.sort();
+        self.note_dirs.reverse();
 
         self.notes = {};
         for nd in self.note_dirs:
@@ -87,9 +92,25 @@ class NotesList:
         else:
             return self.notes[self.note_dirs[i+1]];
 
-    def get_chronological_list(self):
+    def get_rev_chronological_list(self, lrange=None):
+        if not lrange:
+            lrange = (0, len(self.note_dirs));
+
         note_list = [];
-        for n in self.note_dirs:
+        for ni in xrange(lrange[0], lrange[1]):
+            n = self.note_dirs[ni];
             note_list.append(self.notes[n]);
 
         return note_list;
+
+    def get_num_pages(self):
+        num_notes = len(self.note_dirs);
+        num_pages = int(math.ceil(num_notes/float(self.notes_per_page)));
+
+        return num_pages;
+
+    def get_rev_chronological_list_by_page(self, page_num):
+        first_note = (page_num - 1) * self.notes_per_page;
+        upper_note = min(first_note + self.notes_per_page, len(self.note_dirs));
+
+        return self.get_rev_chronological_list((first_note, upper_note));

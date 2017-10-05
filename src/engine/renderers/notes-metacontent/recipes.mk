@@ -9,12 +9,12 @@ endef
 $(foreach type,$(NOTES_MC_TYPES),$(eval $(call notes_mc_template,$(type))))
 
 
-$(NOTES_METAPAGE_INDEX): $(ALL_NOTES) $(ALL_NOTES_CONTENT) $(MK_INFRA_PREREQS)
+$(DIR_BUILD_FRAG_NOTES)/$(NOTE_METAPAGE_CONTENT): $(ALL_NOTES) $(ALL_NOTES_CONTENT) $(MK_INFRA_PREREQS)
 	$(call msg_gen,$@)
 	$(LC)mkdir -p $(dir $@) $(LL)
-	$(LC)$(T_RENDER_NOTESMP) -o $@ -t index -c $(DIR_BUILD_FRAG_NOTES) $(DIR_NOTES) $(LL)
+	$(LC)$(T_RENDER_NOTESMP) -o $@ -i page/1 -c $(DIR_BUILD_FRAG_NOTES) $(DIR_NOTES) $(LL)
 
-
-$(DIR_OUT)/notes/%/$(PAGE_FILE): $(ALL_NOTES_METACONTENT)
-
-$(DIR_OUT)/notes/$(PAGE_FILE): $(NOTES_METAPAGE_INDEX)
+$(DIR_BUILD_FRAG_NOTES)/%/$(NOTE_METAPAGE_CONTENT): $(ALL_NOTES) $(ALL_NOTES_CONTENT) $(MK_INFRA_PREREQS)
+	$(call msg_gen,$@)
+	$(LC)mkdir -p $(dir $@) $(LL)
+	$(LC)$(T_RENDER_NOTESMP) -o $@ -i $* -c $(DIR_BUILD_FRAG_NOTES) $(DIR_NOTES) $(LL)
