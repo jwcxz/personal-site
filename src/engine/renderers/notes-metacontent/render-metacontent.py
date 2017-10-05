@@ -37,16 +37,16 @@ def render_topbar(nl, cur_note):
 
 
 def render_sidebar(nl, cur_note):
-    output = """
-<ul>
-    <li>Link</li>
-    <li>Link</li>
-    <li>Link</li>
-    <li>Link</li>
-    <li>Link</li>
-    <li>Link</li>
-</ul>
-""";
+    notes = nl.get_rev_chronological_list((0, 5));
+
+    output = "<h2 class=\"nocounter\">Recent Notes</h2><ul>"
+
+    for note in notes:
+        output += "<li><a href=\"%s\">%s (%s)</a></li>" % ( note.get_link(),
+                note.get_title(),
+                datetime.datetime.strftime(note.get_date(), '%Y-%m-%d') )
+
+    output += "</ul>";
 
     return output;
 

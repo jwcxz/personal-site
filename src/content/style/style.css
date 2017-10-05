@@ -33,9 +33,9 @@ body {
     }
 }
 
-@media (min-width: 64.5em) {
+@media (min-width: 82em) {
     .container-notes {
-        max-width: 62.5rem;
+        max-width: 80rem;
     }
 }
 
@@ -150,6 +150,10 @@ h6:before {
 .nocounter:before {
     counter-increment: none;
     content: none;
+}
+
+.notes-sidebar h2 {
+    font-size: 1.2rem;
 }
 
 
