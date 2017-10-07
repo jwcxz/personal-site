@@ -4,6 +4,8 @@ import json
 
 from assembler import Assembler
 
+import htmlmin
+
 
 # TODO: discover this programmatically or allow for replacement
 template_dir = "./src/engine/templates";
@@ -20,6 +22,14 @@ if __name__ == "__main__":
             dest='output',
             type=str,
             help='Output file (defaults to stdout if none supplied)'
+            );
+
+    ap.add_argument(
+            '-M', '--no-minification',
+            dest='no_minify',
+            action='store_true',
+            default=False,
+            help='Don\'t minify the output'
             );
 
     ap.add_argument(
@@ -51,6 +61,9 @@ if __name__ == "__main__":
 
     assembler = Assembler(metadata=metadata, search_dirs=search_dirs);
     assembled_page = assembler.populate_master_template();
+
+    if not args.no_minify:
+        assembled_page = htmlmin.minify(assembled_page);
 
     if args.output:
         fd = open(args.output, 'w');
