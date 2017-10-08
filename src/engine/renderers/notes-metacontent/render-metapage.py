@@ -9,7 +9,10 @@ output_types = ['page'];
 
 note_preview_template = """
 <div class="note-preview">
-    <h2 class="nocounter"><a href="%s">%s (%s)</a></h2>
+    <div class="d-flex w-100 justify-content-between flex-wrap">
+        <h2 class="nocounter"><a href="%s">%s</a></h2>
+        <small>%s</small>
+    </div>
     %s
 </div>""";
 

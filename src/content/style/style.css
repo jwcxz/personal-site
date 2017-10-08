@@ -55,16 +55,7 @@ body {
 .masthead > .container {
 }
 
-.nav {
-    float: none;
-    margin: 0 auto;
-    display: block;
-    text-align: center;
-}
-
 .nav li {
-    display: inline-block;
-    float: none;
     font-weight: bold;
 }
 
@@ -169,10 +160,15 @@ h6:before {
 }
 
 
-.notes-mc-topbar-left {
+.notes-sidebar h2 {
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+.notes-mc-botbar-left {
     text-align: left;
 }
 
-.notes-mc-topbar-right {
+.notes-mc-botbar-right {
     text-align: right;
 }

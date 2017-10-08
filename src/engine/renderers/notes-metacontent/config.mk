@@ -1,1 +1,1 @@
-NOTES_MC_TYPES := sidebar topbar
+NOTES_MC_TYPES := sidebar botbar

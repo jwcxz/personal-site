@@ -4,12 +4,12 @@ import datetime
 from notes.notes import Note, NotesList
 
 
-output_types = ['topbar', 'sidebar'];
+output_types = ['botbar', 'sidebar'];
 
 
-def render_topbar(nl, cur_note):
-    prev_note = (nl.get_prev_note(cur_note), '&larr; ', '', 'notes-mc-topbar-left');
-    next_note = (nl.get_next_note(cur_note), '', ' &rarr;', 'notes-mc-topbar-right');
+def render_botbar(nl, cur_note):
+    prev_note = (nl.get_prev_note(cur_note), '&larr; ', '', 'notes-mc-botbar-left');
+    next_note = (nl.get_next_note(cur_note), '', ' &rarr;', 'notes-mc-botbar-right');
 
     cols = [];
     for note, pre, post, style_class in (prev_note, next_note):
@@ -39,14 +39,28 @@ def render_topbar(nl, cur_note):
 def render_sidebar(nl, cur_note):
     notes = nl.get_rev_chronological_list((0, 5));
 
-    output = "<h2 class=\"nocounter\">Recent Notes</h2><ul>"
+    entry_template = """<a href="%s" class="list-group-item list-group-item-action flex-column align-items-start%s">
+    <div class="d-flex w-100 justify-content-between flex-wrap align-items-center">
+        <p class="m-0">%s</p>
+        <small>%s</small>
+    </div>
+</a>""";
+
+    output = "<h2 class=\"nocounter text-center\">Recent Notes</h2><div class=\"list-group\">"
 
     for note in notes:
-        output += "<li><a href=\"%s\">%s (%s)</a></li>" % ( note.get_link(),
+        if note.get_link() == cur_note.get_link():
+            active = ' active';
+        else:
+            active = '';
+
+        output += entry_template % (
+                note.get_link(),
+                active,
                 note.get_title(),
                 datetime.datetime.strftime(note.get_date(), '%Y-%m-%d') )
 
-    output += "</ul>";
+    output += "</div>";
 
     return output;
 
@@ -114,8 +128,8 @@ if __name__ == "__main__":
     nl = NotesList(args.notesdir);
     cur_note = Note(args.notesdir, args.currentnote);
 
-    if args.mctype == 'topbar':
-        render_fn = render_topbar;
+    if args.mctype == 'botbar':
+        render_fn = render_botbar;
     elif args.mctype == 'sidebar':
         render_fn = render_sidebar;
 
