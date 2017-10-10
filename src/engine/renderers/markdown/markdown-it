@@ -100,6 +100,47 @@ readFile(options.file, 'utf8', function (err, input) {
     listType: 'ol'
   });
 
+  // override image rendering to support http://ashleydw.github.io/lightbox
+  // design borrowed heavily from https://www.npmjs.com/package/markdown-it-linkify-images
+  md.renderer.rules.image = function(tokens, idx, options, env, self) {
+    var token = tokens[idx];
+    var srcIndex = token.attrIndex('src');
+    var img = token.attrs[srcIndex][1];
+    var argstr = token.content.split('##');
+
+    var caption = argstr[0];
+    var args = {};
+
+    args.url = img;
+    args.title = '';
+    args.footer = caption;
+    args.gallery = '';
+
+    for ( var i=0 ; i<argstr.length ; i++ ) {
+        var kv = argstr[i].split(':');
+        args[kv[0]] = kv.slice(1).join(':');
+    }
+
+    var data_title = '';
+    if ( args.title != '' ) {
+      data_title = ' data-title="'+args.title+'"';
+    }
+
+    var data_footer = '';
+    if ( args.footer != '' ) {
+      data_footer = ' data-footer="'+args.footer+'"';
+    }
+
+    var data_gallery = '';
+    if ( args.gallery != '' ) {
+      data_gallery = ' data-gallery="'+args.gallery+'"';
+    }
+
+    return '<a href="'+args.url+'" data-toggle="lightbox"'+data_title+data_footer+data_gallery+'>' +
+        '<img src="'+img+'" alt="'+caption+'" class="img-thumbnail mx-auto d-block">' +
+      '</a>';
+  }
+
   try {
     output = md.render(input);
 

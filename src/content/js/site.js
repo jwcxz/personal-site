@@ -1,3 +1,4 @@
+// Smooth-scrolling to page anchors
 // https://paulund.co.uk/smooth-scroll-to-internal-links-with-jquery
 // http://www.sycha.com/jquery-smooth-scrolling-internal-anchor-links
 $(document).ready(function(){
@@ -16,5 +17,14 @@ $(document).ready(function(){
         }, 500, 'swing', function () {
             window.location.hash = target;
         });
+    });
+});
+
+
+// Lightbox
+$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+    event.preventDefault();
+    $(this).ekkoLightbox({
+        loadingMessage: '.'
     });
 });

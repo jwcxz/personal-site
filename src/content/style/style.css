@@ -137,8 +137,8 @@ h6:before {
                 counter(h6counter) ".\0000a0\0000a0";
 }
 
-.nocounter { counter-reset: none }
-.nocounter:before {
+.nocounter, .modal-title { counter-reset: none }
+.nocounter:before, .modal-title:before {
     counter-increment: none;
     content: none;
 }
