@@ -2,6 +2,9 @@ import re
 import os
 import sys
 
+reload(sys)
+sys.setdefaultencoding('utf-8');
+
 class Assembler:
     command_finder = re.compile(r"\<!--__(?P<command>[^:>]+):(?P<arglist>[^>]*)--\>");
 

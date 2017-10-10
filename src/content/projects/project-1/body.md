@@ -14,6 +14,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam ut ipsum al
 
 Nullam quis lorem imperdiet, accumsan enim ac, rutrum lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id tristique tortor, eu ullamcorper sapien. Aenean mauris libero, imperdiet eu eros volutpat, cursus condimentum sem. Nam euismod nulla vel varius vehicula. In commodo egestas lectus vitae maximus. Vivamus non eros in orci ornare sodales. In at ultrices lorem. Mauris mattis efficitur eros, ac convallis felis fermentum et. Aliquam ullamcorper blandit massa, nec dictum nunc lacinia ornare. Quisque aliquet, lorem a feugiat bibendum, tellus lectus pellentesque sapien, et placerat felis sem at est. Proin non ligula purus.
 
+Inline math: $\alpha - \beta$
+
 
 ### Subsection
 
