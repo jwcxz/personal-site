@@ -88,6 +88,11 @@ body {
 }
 
 
+.img-thumbnail {
+    max-width: 240px;
+}
+
+
 h1 {
     font-weight: bold;
     text-align: center;
