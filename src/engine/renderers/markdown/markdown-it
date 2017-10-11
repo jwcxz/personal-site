@@ -121,10 +121,15 @@ readFile(options.file, 'utf8', function (err, input) {
     args.title = '';
     args.footer = caption;
     args.gallery = '';
+    args.thumb = false;
 
     for ( var i=0 ; i<argstr.length ; i++ ) {
         var kv = argstr[i].split(':');
-        args[kv[0]] = kv.slice(1).join(':');
+        if ( kv.length > 1 ) {
+            args[kv[0]] = kv.slice(1).join(':');
+        } else {
+            args[kv[0]] = true;
+        }
     }
 
     var data_title = '';
@@ -140,6 +145,10 @@ readFile(options.file, 'utf8', function (err, input) {
     var data_gallery = '';
     if ( args.gallery != '' ) {
       data_gallery = ' data-gallery="'+args.gallery+'"';
+    }
+
+    if ( args.thumb ) {
+        img = img + '.thumb.jpg';
     }
 
     return '<a href="'+args.url+'" data-toggle="lightbox"'+data_title+data_footer+data_gallery+'>' +

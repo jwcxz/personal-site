@@ -4,7 +4,7 @@ mk_mkstk_push = $(eval MAKEFILE_STACK := $(lastword $(MAKEFILE_LIST)) $(MAKEFILE
 mk_mkstk_pop = $(eval MAKEFILE_STACK := $(wordlist 2, $(words $(MAKEFILE_STACK)), $(MAKEFILE_STACK)))
 
 mk_module_include = $(addsuffix /$(call mk_this_file),$(addprefix $(1)/,$(2)))
-mk_module_includes = $(call mk_module_include,$(DIR_GENERATORS),$(GENERATORS)) $(call mk_module_include,$(DIR_RENDERERS),$(RENDERERS))
+mk_module_includes = $(call mk_module_include,$(DIR_GENERATORS),$(GENERATORS)) $(call mk_module_include,$(DIR_RENDERERS),$(RENDERERS)) $(call mk_module_include,$(DIR_DERIVERS),$(DERIVERS))
 mk_this = $(firstword $(MAKEFILE_STACK))
 mk_this_dir = $(dir $(call mk_this))
 mk_this_file = $(notdir $(call mk_this))

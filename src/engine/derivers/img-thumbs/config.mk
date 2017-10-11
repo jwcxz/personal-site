@@ -1,0 +1,1 @@
+IMG_MAX_WIDTH := 240

@@ -9,6 +9,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam ut ipsum al
 ![Caption##title:Title!](https://unsplash.it/360.jpg?image=253)
 ![Caption##url:https://unsplash.it/600.jpg?image=254##footer:blahblah](https://unsplash.it/240.jpg?image=254)
 
+![Test image##thumb](test-image.jpg)
 
 ## Section 2
 

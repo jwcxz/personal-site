@@ -22,6 +22,7 @@ HTML output and copying static content to `out/`.
         - `renderers/`: renderers
         - `assembler/`: page assembler
         - `templates/`: page templates
+        - `derivers/`: derivers
 - `Makefile`: top-level makefile
 - `package-lock.json`: NPM package versioning directives
 - `package.json`: NPM package specification
@@ -143,3 +144,12 @@ The following commands shall be supported:
 - `content`: Replace command with the value of the specified key from
     `page.json`
     - `ARG0`: Key
+
+
+## Static Content and Derived Static Content
+
+All content not used to generate HTML pages shall be considered _static
+content_.  Each piece of static content shall be copied to the output directory
+with a sub-directory analogous to that of its source material.  _Derivers_
+shall further process static content to produce new _derived static content_.
+Derivers shall be located in `src/engine/derivers`.
