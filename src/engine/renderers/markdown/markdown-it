@@ -104,6 +104,8 @@ readFile(options.file, 'utf8', function (err, input) {
 
   md.use(require('markdown-it-video', { youtube: { width: 640, height: 390 } }));
 
+  md.use(require('markdown-it-highlightjs'));
+
   // override image rendering to support http://ashleydw.github.io/lightbox
   // design borrowed heavily from https://www.npmjs.com/package/markdown-it-linkify-images
   md.renderer.rules.image = function(tokens, idx, options, env, self) {

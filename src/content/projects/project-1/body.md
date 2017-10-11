@@ -34,3 +34,28 @@ Sed accumsan neque ex, vitae ornare nunc mattis vel. Vivamus rutrum neque tellus
     2. Sub-step 2
 2. Step 2
 3. Step 3
+
+
+## Section 3
+
+```c
+uint32_t umul16_16(uint16_t a, uint16_t b) {
+    uint32_t product = 0;
+    uint32_t a_u32 = a;
+    while (b) {
+        if ( b & 1 ) {
+            product += a_u32;
+        }
+        b >>= 1;
+        a_u32 <<= 1;
+    }
+    return product;
+}
+```
+
+Some `inline monospace` here.
+
+```
+def log(ln):
+    sys.stdout.write(ln);
+```
