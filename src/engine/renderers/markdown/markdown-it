@@ -102,6 +102,8 @@ readFile(options.file, 'utf8', function (err, input) {
 
   md.use(require('markdown-it-katex'));
 
+  md.use(require('markdown-it-video', { youtube: { width: 640, height: 390 } }));
+
   // override image rendering to support http://ashleydw.github.io/lightbox
   // design borrowed heavily from https://www.npmjs.com/package/markdown-it-linkify-images
   md.renderer.rules.image = function(tokens, idx, options, env, self) {
