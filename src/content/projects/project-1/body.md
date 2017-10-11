@@ -17,6 +17,8 @@ Nullam quis lorem imperdiet, accumsan enim ac, rutrum lorem. Lorem ipsum dolor s
 
 Inline math: $\alpha - \beta$
 
+$$\frac{\alpha - 1}{\beta}$$
+
 
 ### Subsection
 
