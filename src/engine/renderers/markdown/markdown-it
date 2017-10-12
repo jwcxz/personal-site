@@ -106,6 +106,8 @@ readFile(options.file, 'utf8', function (err, input) {
 
   md.use(require('markdown-it-highlightjs'));
 
+  md.use(require('markdown-it-attrs'));
+
   // override image rendering to support http://ashleydw.github.io/lightbox
   // design borrowed heavily from https://www.npmjs.com/package/markdown-it-linkify-images
   md.renderer.rules.image = function(tokens, idx, options, env, self) {
