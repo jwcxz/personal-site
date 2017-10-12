@@ -10,5 +10,6 @@ endif
 
 DIR_BUILD_PAGE := $(DIR_BUILD)/page
 DIR_BUILD_FRAG := $(DIR_BUILD)/frag
+DIR_BUILD_DEPS := $(DIR_BUILD)/deps
 
 $(call mk_post)
