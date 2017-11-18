@@ -18,6 +18,12 @@ body {
     }
 }
 
+@media (min-width: 102em) {
+    .container-projects {
+        max-width: 100rem;
+    }
+}
+
 .container-narrow > hr {
     margin: 2rem 0;
 }
