@@ -150,7 +150,9 @@ readFile(options.file, 'utf8', function (err, input) {
     }
 
     if ( args.thumb ) {
-        img = img + '.thumb.jpg';
+        var ii = img.split('.');
+        var imgext = ii[ii.length - 1];
+        img = img + '.thumb.' + imgext;
     }
 
     return '<a href="'+args.url+'" data-toggle="lightbox"'+data_title+data_footer+data_gallery+'>' +
