@@ -1,0 +1,15 @@
+{
+    "template": "default",
+
+    "content": {
+        "title": {
+            "type": "string",
+            "value": "bt"
+        },
+
+        "body": {
+            "type": "file",
+            "value": "body"
+        }
+    }
+}
