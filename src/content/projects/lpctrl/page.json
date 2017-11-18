@@ -1,0 +1,15 @@
+{
+    "template": "default",
+
+    "content": {
+        "title": {
+            "type": "string",
+            "value": "lpctrl"
+        },
+
+        "body": {
+            "type": "file",
+            "value": "body"
+        }
+    }
+}
