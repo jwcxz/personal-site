@@ -27,3 +27,9 @@ with the addition of a small biasing circuit to correct the input range of the
 audio signal.
 
 ![Biasing circuit for centering audio input##thumb](biaser.jpg)
+
+The following screenshot shows bt in operation.  Each metronome reports its
+error rate.  The 124-, 125-, and 126-BPM metronomes report very little error,
+so bt correctly estimates that the tempo is 125 BPM.
+
+![Screenshot of bt in operation##thumb](screenshot.png)
