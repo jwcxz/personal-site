@@ -1,0 +1,15 @@
+{
+    "template": "default",
+
+    "content": {
+        "title": {
+            "type": "string",
+            "value": "File not Found"
+        },
+
+        "body": {
+            "type": "file",
+            "value": "body"
+        }
+    }
+}
