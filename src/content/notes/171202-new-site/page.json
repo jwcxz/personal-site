@@ -4,7 +4,7 @@
     "content": {
         "title": {
             "type": "string",
-            "value": "Example Post Title"
+            "value": "New Site Architecture"
         },
 
         "body": {
