@@ -1,6 +1,8 @@
 #!/usr/bin/env python2
 
 project_list_template = """
+<p>A list of selected projects follows.  Smaller efforts not listed here can be found on <a href="/git">GitHub</a>.</p>
+
 <ul>
     %s
 </ul>""";
