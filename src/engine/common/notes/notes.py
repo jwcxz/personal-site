@@ -43,12 +43,19 @@ class Note:
 
     def get_content_preview(self):
         lines = [];
+        content_break = False;
         for line in self.content.split("\n"):
             if line.strip() == "<!--break-->":
+                content_break = True;
                 break;
             lines.append(line);
 
-        return "\n".join(lines);
+        preview = "\n".join(lines);
+
+        if content_break:
+            preview += " <p><a class=\"notes-preview-break-continued\" href=\"%s\">continued &raquo;</a></p>" % (self.get_link());
+
+        return preview;
 
 
 class NotesList:
