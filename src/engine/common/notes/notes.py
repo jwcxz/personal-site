@@ -3,6 +3,10 @@ import json
 import math
 import os
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8');
+
 
 class Note:
     def __init__(self, notes_dir, name, content_fn=None):
