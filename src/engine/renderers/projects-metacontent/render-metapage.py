@@ -11,19 +11,19 @@ project_entry_template = """<li><a href="%s">%s</a> - %s</li>""";
 project_list = [
     {
         'name': 'ACRIS',
-        'link': 'acris',
+        'link': '/git/ACRIS',
         'description': 'Automatically-Controlled Room Illumination System - an end-to-end room lighting system'
     },
 
     {
         'name': 'bt',
         'link': 'bt',
-        'description': 'a probabalistic tempo estimator implemented in RTL'
+        'description': 'a probabilistic tempo estimator implemented in RTL'
     },
 
     {
         'name': 'bcard',
-        'link': 'bcard',
+        'link': '/git/bcard',
         'description': 'an inexpensive PCB business card'
     },
 
@@ -35,13 +35,19 @@ project_list = [
 
     {
         'name': 'hdctrlr',
-        'link': 'hdctrlr',
+        'link': '/git/hdctrlr',
         'description': 'a scroll wheel implemented with a hard drive platter'
     },
 
     {
+        'name': 'hkir',
+        'link': '/git/hkir',
+        'description': 'a device to emulate Harmon Kardon\'s IR protocol for computer control of HK stereo receivers'
+    },
+
+    {
         'name': 'glowscape',
-        'link': 'glowscape',
+        'link': '/git/glowscape',
         'description': 'a simple audio VU meter implemented with illuminated glowsticks'
     },
 
@@ -53,13 +59,13 @@ project_list = [
 
     {
         'name': 'CEREBRO',
-        'link': 'cerebro',
+        'link': '/git/CEREBRO',
         'description': 'a brain activity visualizer implemented on an 8051'
     },
 
     {
         'name': 'peq',
-        'link': 'peq',
+        'link': '/git/peq',
         'description': 'a parametric equalizer implemented in RTL'
     },
 
@@ -77,85 +83,91 @@ project_list = [
 
     {
         'name': 'filedump',
-        'link': 'filedump',
+        'link': '/git/filedump',
         'description': 'A lightweight utility for displaying and managing files from a web interface'
     },
 
     {
         'name': 'vim-pandemic',
-        'link': 'vim-pandemic',
+        'link': '/git/vim-pandemic',
         'description': 'a utility to manage Vim bundles'
     },
 
     {
-        'name': 'My .vimrc',
-        'link': 'vimrc',
+        'name': 'My vim configuration',
+        'link': '/git/.vim',
         'description': 'my (mostly) modular vim configuration'
     },
 
     {
         'name': 'vim-todo',
-        'link': 'vim-todo',
+        'link': '/git/vim-todo',
         'description': 'syntax highlighting for simple TODO lists'
     },
 
     {
         'name': 'vim-vdb',
-        'link': 'vim-vdb',
+        'link': '/git/vim-vdb',
         'description': 'syntax highlighting for simple human-readable key:value databases'
     },
 
     {
         'name': 'vim-logcp',
-        'link': 'vim-logcp',
+        'link': '/git/vim-logcp',
         'description': 'syntax highlighting and macros for logcp'
     },
 
     {
         'name': 'vim-jsim',
-        'link': 'vim-jsim',
+        'link': '/git/vim-jsim',
         'description': 'syntax highlighting and tags configuration for 6.004\'s JSIM HDL'
     },
 
     {
+        'name': 'My zsh configuration',
+        'link': '/git/.zsh',
+        'description': 'my (mostly) modular zsh configuration'
+    },
+
+    {
         'name': 'Prox Sensor Scroll Wheel',
-        'link': 'proxscroll',
+        'link': '/git/proxscroll',
         'description': 'emulating a scroll wheel with a proximity sensor'
     },
 
     {
         'name': 'logcp',
-        'link': 'logcp',
+        'link': '/git/logcp',
         'description': 'a semi-user-interactive tool to bulk-copy modified files in a source directory to a destination directory'
     },
 
     {
         'name': 'color-control',
-        'link': 'color-control',
+        'link': '/git/color-control',
         'description': 'a utility to build Xresources/TTY-configs from an SVG color palette'
     },
 
     {
         'name': 'ubbcom',
-        'link': 'ubbcom',
+        'link': '/git/ubbcom',
         'description': 'an inexpensive breakout board for adding USB serial communication to a breadboard'
     },
 
     {
         'name': 'flacsync',
-        'link': 'flacsync',
+        'link': '/git/flacsync',
         'description': 'a utility to transcode FLACs to MP3s while preserving as much tag and image information as possible'
     },
 
     {
         'name': 'knocker',
-        'link': 'knocker',
+        'link': '/git/knocker',
         'description': 'a lightweight port-knocking client'
     },
 
     {
         'name': 'irc2sms',
-        'link': 'irc2sms',
+        'link': '/git/irc2sms',
         'description': 'a service to forward IRC messages to a phone via SMS'
     },
 
@@ -191,19 +203,19 @@ project_list = [
 
     {
         'name': 'gvcall',
-        'link': 'gvcall',
+        'link': '/git/gvcall',
         'description': 'a command-line utility to aid with VoIP calling'
     },
 
     {
         'name': 'icsy',
-        'link': 'icsy',
+        'link': '/git/icsy',
         'description': 'I can\'t Sleep Yet - a simple alarm to help its user up from naps'
     },
 
     {
         'name': 'eclipse',
-        'link': 'eclipse',
+        'link': 'https://store.kde.org/content/show.php/Eclipse?content=98513',
         'description': 'a color scheme for KDE4'
     },
 ];
