@@ -175,20 +175,20 @@ project_list = [
 
     {
         'name': 'Spartan 3-AN On-Board ADC/Pre-Amp Controller',
-        'link': 's3an-ampadc',
+        'link': '/git/s3ankit-amp-adc',
         'description': 'lightweight RTL block for controlling the Spartan 3-AN\'s LTC6912-1 pre-amp and LTC1407A-1 ADC'
     },
 
     {
-        'name': 'Seven-Segment Display Control',
-        'link': 'sevseg',
+        'name': 'Seven-Segment Display Control in RTL',
+        'link': '/git/sevseg',
         'description': 'an RTL block for controlling seven-segment LED displays'
     },
 
     {
         'name': 'Improving Inexpensive Laser Pointers',
         'link': 'liion-laser-pointers',
-        'description': 'a simple method for using lithium batteries to improve output stability of green laser pionters'
+        'description': 'a simple method for using lithium batteries to improve output stability of green laser pointers'
     },
 
     {
