@@ -168,15 +168,27 @@ project_list = [
     },
 
     {
-        'name': 'Software Utilities',
+        'name': 'Web',
 
         'projects': [
             {
-                'name': 'filedump',
-                'link': '/git/filedump',
-                'description': 'A lightweight utility for displaying and managing files from a web interface'
+                'name': 'This site',
+                'link': '/git/personal-site',
+                'description': 'sources for the content and build system that renders this site'
             },
 
+            {
+                'name': 'filedump',
+                'link': '/git/filedump',
+                'description': 'a lightweight utility for displaying and managing files from a web interface'
+            },
+        ]
+    },
+
+    {
+        'name': 'Software Utilities',
+
+        'projects': [
             {
                 'name': 'logcp',
                 'link': '/git/logcp',
