@@ -3,6 +3,11 @@
 project_list_template = """
 <p>A list of selected projects follows.  Smaller efforts not listed here can be found on <a href="/git">GitHub</a>.</p>
 
+%s""";
+
+project_category_template = """
+<h2 class="nocounter">%s</h2>
+
 <ul>
     %s
 </ul>""";
@@ -12,224 +17,242 @@ project_entry_template = """<li><a href="%s">%s</a> - %s</li>""";
 
 project_list = [
     {
-        'name': 'ACRIS',
-        'link': '/git/ACRIS',
-        'description': 'Automatically-Controlled Room Illumination System - an end-to-end room lighting system'
+        'name': 'Lighting and Visual Displays',
+
+        'projects': [
+            {
+                'name': 'ACRIS',
+                'link': '/git/ACRIS',
+                'description': 'Automatically-Controlled Room Illumination System - an end-to-end room lighting system'
+            },
+
+            {
+                'name': 'glowscape',
+                'link': '/git/glowscape',
+                'description': 'a simple audio VU meter implemented with illuminated glowsticks'
+            },
+
+            {
+                'name': 'CEREBRO',
+                'link': '/git/CEREBRO',
+                'description': 'a brain activity visualizer implemented on an 8051'
+            },
+        ]
     },
 
     {
-        'name': 'bt',
-        'link': 'bt',
-        'description': 'a probabilistic tempo estimator implemented in RTL'
+        'name': 'Audio Processing',
+
+        'projects': [
+            {
+                'name': 'bt',
+                'link': 'bt',
+                'description': 'a probabilistic tempo estimator implemented in RTL'
+            },
+
+            {
+                'name': 'hkir',
+                'link': '/git/hkir',
+                'description': 'a device to emulate Harmon Kardon\'s IR protocol for computer control of HK stereo receivers'
+            },
+
+            {
+                'name': 'peq',
+                'link': '/git/peq',
+                'description': 'a parametric equalizer implemented in RTL'
+            },
+        ]
     },
 
     {
-        'name': 'bcard',
-        'link': '/git/bcard',
-        'description': 'an inexpensive PCB business card'
+        'name': 'User Interaction',
+
+        'projects': [
+            {
+                'name': 'bcard',
+                'link': '/git/bcard',
+                'description': 'an inexpensive interactive PCB business card'
+            },
+
+            {
+                'name': 'hdctrlr',
+                'link': '/git/hdctrlr',
+                'description': 'a scroll wheel implemented with a hard drive platter'
+            },
+
+            {
+                'name': 'Prox Sensor Scroll Wheel',
+                'link': '/git/proxscroll',
+                'description': 'emulating a scroll wheel with a proximity sensor'
+            },
+
+            {
+                'name': 'Numark TotalControl Scroll Wheel',
+                'link': '/git/totalcontrol-scroll',
+                'description': 'a utility to enable Numark TotalControl to be used as a pair of scroll wheels'
+            },
+        ]
     },
 
     {
-        'name': 'chanem',
-        'link': 'chanem',
-        'description': 'a multipurpose channel emulator for airborne network communications (Master\'s thesis)'
+        'name': 'Software-Defined Radio',
+
+        'projects': [
+            {
+                'name': 'chanem',
+                'link': 'chanem',
+                'description': 'a multipurpose channel emulator for airborne network communications (Master\'s thesis)'
+            },
+        ]
     },
 
     {
-        'name': 'hdctrlr',
-        'link': '/git/hdctrlr',
-        'description': 'a scroll wheel implemented with a hard drive platter'
+        'name': 'Tool Sharpening',
+
+        'projects': [
+            {
+                'name': 'My vim configuration',
+                'link': '/git/.vim',
+                'description': 'my (mostly) modular vim configuration'
+            },
+
+            {
+                'name': 'My zsh configuration',
+                'link': '/git/.zsh',
+                'description': 'my (mostly) modular zsh configuration'
+            },
+
+            {
+                'name': 'vim-pandemic',
+                'link': '/git/vim-pandemic',
+                'description': 'a utility to manage Vim bundles'
+            },
+
+
+            {
+                'name': 'vim-todo',
+                'link': '/git/vim-todo',
+                'description': 'syntax highlighting for simple TODO lists'
+            },
+
+            {
+                'name': 'vim-vdb',
+                'link': '/git/vim-vdb',
+                'description': 'syntax highlighting for simple human-readable key:value databases'
+            },
+
+            {
+                'name': 'vim-logcp',
+                'link': '/git/vim-logcp',
+                'description': 'syntax highlighting and macros for logcp'
+            },
+
+            {
+                'name': 'vim-jsim',
+                'link': '/git/vim-jsim',
+                'description': 'syntax highlighting and tags configuration for 6.004\'s JSIM HDL'
+            },
+
+            {
+                'name': 'color-control',
+                'link': '/git/color-control',
+                'description': 'a utility to build Xresources/TTY-configs from an SVG color palette'
+            },
+
+            {
+                'name': 'eclipse',
+                'link': 'https://store.kde.org/content/show.php/Eclipse?content=98513',
+                'description': 'a color scheme for KDE4'
+            },
+        ]
     },
 
     {
-        'name': 'hkir',
-        'link': '/git/hkir',
-        'description': 'a device to emulate Harmon Kardon\'s IR protocol for computer control of HK stereo receivers'
+        'name': 'Software Utilities',
+
+        'projects': [
+            {
+                'name': 'filedump',
+                'link': '/git/filedump',
+                'description': 'A lightweight utility for displaying and managing files from a web interface'
+            },
+
+            {
+                'name': 'logcp',
+                'link': '/git/logcp',
+                'description': 'a semi-user-interactive tool to bulk-copy modified files in a source directory to a destination directory'
+            },
+
+            {
+                'name': 'flacsync',
+                'link': '/git/flacsync',
+                'description': 'a utility to transcode FLACs to MP3s while preserving as much tag and image information as possible'
+            },
+
+            {
+                'name': 'knocker',
+                'link': '/git/knocker',
+                'description': 'a lightweight port-knocking client'
+            },
+
+            {
+                'name': 'irc2sms',
+                'link': '/git/irc2sms',
+                'description': 'a service to forward IRC messages to a phone via SMS'
+            },
+
+            {
+                'name': 'gvcall',
+                'link': '/git/gvcall',
+                'description': 'a command-line utility to aid with VoIP calling'
+            },
+
+            {
+                'name': 'icsy',
+                'link': '/git/icsy',
+                'description': 'I can\'t Sleep Yet - a simple alarm to help its user up from naps'
+            },
+        ]
     },
 
     {
-        'name': 'glowscape',
-        'link': '/git/glowscape',
-        'description': 'a simple audio VU meter implemented with illuminated glowsticks'
-    },
+        'name': 'Hardware Utilities',
 
-    {
-        'name': 'lpctrl',
-        'link': 'lpctrl',
-        'description': 'a framework for interfacing with the Novation Launchpad controller'
-    },
+        'projects': [
+            {
+                'name': 'Spartan 3-AN On-Board ADC/Pre-Amp Controller',
+                'link': '/git/s3ankit-amp-adc',
+                'description': 'lightweight RTL block for controlling the Spartan 3-AN\'s LTC6912-1 pre-amp and LTC1407A-1 ADC'
+            },
 
-    {
-        'name': 'CEREBRO',
-        'link': '/git/CEREBRO',
-        'description': 'a brain activity visualizer implemented on an 8051'
-    },
+            {
+                'name': 'Seven-Segment Display Control in RTL',
+                'link': '/git/sevseg',
+                'description': 'an RTL block for controlling seven-segment LED displays'
+            },
 
-    {
-        'name': 'peq',
-        'link': '/git/peq',
-        'description': 'a parametric equalizer implemented in RTL'
-    },
-
-    {
-        'name': 'RGV Portable Lasers',
-        'link': 'rgv-lasers',
-        'description': 'a construction of three portable lasers with matching chassis'
-    },
-
-    {
-        'name': 'Portable Blu-Ray Laser',
-        'link': 'mxbluray',
-        'description': 'A portable Blu-Ray laser constructed with a small LED flashlight chassis'
-    },
-
-    {
-        'name': 'filedump',
-        'link': '/git/filedump',
-        'description': 'A lightweight utility for displaying and managing files from a web interface'
-    },
-
-    {
-        'name': 'vim-pandemic',
-        'link': '/git/vim-pandemic',
-        'description': 'a utility to manage Vim bundles'
-    },
-
-    {
-        'name': 'My vim configuration',
-        'link': '/git/.vim',
-        'description': 'my (mostly) modular vim configuration'
-    },
-
-    {
-        'name': 'vim-todo',
-        'link': '/git/vim-todo',
-        'description': 'syntax highlighting for simple TODO lists'
-    },
-
-    {
-        'name': 'vim-vdb',
-        'link': '/git/vim-vdb',
-        'description': 'syntax highlighting for simple human-readable key:value databases'
-    },
-
-    {
-        'name': 'vim-logcp',
-        'link': '/git/vim-logcp',
-        'description': 'syntax highlighting and macros for logcp'
-    },
-
-    {
-        'name': 'vim-jsim',
-        'link': '/git/vim-jsim',
-        'description': 'syntax highlighting and tags configuration for 6.004\'s JSIM HDL'
-    },
-
-    {
-        'name': 'My zsh configuration',
-        'link': '/git/.zsh',
-        'description': 'my (mostly) modular zsh configuration'
-    },
-
-    {
-        'name': 'Prox Sensor Scroll Wheel',
-        'link': '/git/proxscroll',
-        'description': 'emulating a scroll wheel with a proximity sensor'
-    },
-
-    {
-        'name': 'logcp',
-        'link': '/git/logcp',
-        'description': 'a semi-user-interactive tool to bulk-copy modified files in a source directory to a destination directory'
-    },
-
-    {
-        'name': 'color-control',
-        'link': '/git/color-control',
-        'description': 'a utility to build Xresources/TTY-configs from an SVG color palette'
-    },
-
-    {
-        'name': 'ubbcom',
-        'link': '/git/ubbcom',
-        'description': 'an inexpensive breakout board for adding USB serial communication to a breadboard'
-    },
-
-    {
-        'name': 'flacsync',
-        'link': '/git/flacsync',
-        'description': 'a utility to transcode FLACs to MP3s while preserving as much tag and image information as possible'
-    },
-
-    {
-        'name': 'knocker',
-        'link': '/git/knocker',
-        'description': 'a lightweight port-knocking client'
-    },
-
-    {
-        'name': 'irc2sms',
-        'link': '/git/irc2sms',
-        'description': 'a service to forward IRC messages to a phone via SMS'
-    },
-
-    {
-        'name': 'Spartan 3-AN On-Board ADC/Pre-Amp Controller',
-        'link': '/git/s3ankit-amp-adc',
-        'description': 'lightweight RTL block for controlling the Spartan 3-AN\'s LTC6912-1 pre-amp and LTC1407A-1 ADC'
-    },
-
-    {
-        'name': 'Seven-Segment Display Control in RTL',
-        'link': '/git/sevseg',
-        'description': 'an RTL block for controlling seven-segment LED displays'
-    },
-
-    {
-        'name': 'Improving Inexpensive Laser Pointers',
-        'link': 'liion-laser-pointers',
-        'description': 'a simple method for using lithium batteries to improve output stability of green laser pointers'
-    },
-
-    {
-        'name': 'Numark TotalControl Scroll Wheel',
-        'link': 'totalcontrol-scrollwheel',
-        'description': 'a utility to enable Numark TotalControl to be used as a pair of scroll wheels'
-    },
-
-    {
-        'name': 'Optical Trapping Example',
-        'link': 'optical-trapping',
-        'description': 'levitating pieces of a marker with a laser'
-    },
-
-    {
-        'name': 'gvcall',
-        'link': '/git/gvcall',
-        'description': 'a command-line utility to aid with VoIP calling'
-    },
-
-    {
-        'name': 'icsy',
-        'link': '/git/icsy',
-        'description': 'I can\'t Sleep Yet - a simple alarm to help its user up from naps'
-    },
-
-    {
-        'name': 'eclipse',
-        'link': 'https://store.kde.org/content/show.php/Eclipse?content=98513',
-        'description': 'a color scheme for KDE4'
+            {
+                'name': 'ubbcom',
+                'link': '/git/ubbcom',
+                'description': 'an inexpensive breakout board for adding USB serial communication to a breadboard'
+            },
+        ]
     },
 ];
 
 
 def render_page():
-    project_entries = [];
-    for project in project_list:
-        project_entries.append(project_entry_template % (project['link'], project['name'], project['description']));
+    project_category_entries = [];
+    for category in project_list:
+        project_entries = [];
+        for project in category['projects']:
+            project_entries.append(project_entry_template % (project['link'], project['name'], project['description']));
 
-    output = project_list_template % ("\n".join(project_entries));
+        project_category_entries.append(project_category_template % (
+            category['name'],
+            "\n".join(project_entries)));
 
+    output = project_list_template % ("\n".join(project_category_entries));
     return output;
 
 
