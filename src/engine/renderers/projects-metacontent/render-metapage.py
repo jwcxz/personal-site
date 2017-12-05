@@ -28,7 +28,7 @@ project_list = [
 
             {
                 'name': 'glowscape',
-                'link': '/git/glowscape',
+                'link': 'glowscape',
                 'description': 'a simple audio VU meter implemented with illuminated glowsticks'
             },
 
