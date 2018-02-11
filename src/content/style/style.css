@@ -6,26 +6,15 @@ body {
     font-weight: 300;
 }
 
-@media (min-width: 52em) {
+
+.container {
+    max-width: 900px;
+}
+
+@media (max-width: 990px) {
     .container {
-        max-width: 50rem;
+        max-width: 600px;
     }
-}
-
-@media (min-width: 102em) {
-    .container-notes {
-        max-width: 100rem;
-    }
-}
-
-@media (min-width: 102em) {
-    .container-projects {
-        max-width: 100rem;
-    }
-}
-
-.container-narrow > hr {
-    margin: 2rem 0;
 }
 
 
@@ -40,6 +29,7 @@ body {
 .masthead > .container {
 }
 
+
 .nav li {
     font-weight: bold;
     text-transform: lowercase;
@@ -48,6 +38,7 @@ body {
 .nav-link {
     padding: 0.5rem 2rem 0.5rem 2rem;
 }
+
 
 .footer {
     margin-top: 3rem;
@@ -141,8 +132,10 @@ h6:before {
     content: none;
 }
 
-.notes-sidebar h2 {
+.sidebar h2 {
     font-size: 1.2rem;
+    font-weight: bold;
+    font-variant: small-caps;
 }
 
 
@@ -157,11 +150,6 @@ h6:before {
     content: counters(section, ".") ". ";
 }
 
-
-.notes-sidebar h2 {
-    font-weight: bold;
-    font-variant: small-caps;
-}
 
 .notes-mc-botbar-left {
     text-align: left;

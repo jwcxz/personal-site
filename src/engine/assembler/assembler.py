@@ -19,7 +19,7 @@ class Assembler:
             ci = c(metadata=self.metadata, search_dirs=self.search_dirs);
             self.commands[ci.get_name()] = ci;
 
-    def populate_template(self, filename):
+    def populate_template(self, filename, on_missing=None):
         def replace_command_invocation(m):
             parsed = m.groupdict();
             command = parsed['command'];
@@ -36,9 +36,12 @@ class Assembler:
         template_path = self._find_file(filename);
 
         if not template_path:
-            sys.stderr.write("Error: %s not found in search directories\n" % filename);
-            # TODO: exit?
-            return "";
+            if on_missing:
+                return on_missing(filename);
+            else:
+                sys.stderr.write("Error: %s not found in search directories\n" % filename);
+                # TODO: exit?
+                return "";
 
         fd = open(template_path, 'r');
         file_content = fd.read();

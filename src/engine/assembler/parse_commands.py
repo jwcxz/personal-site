@@ -66,5 +66,12 @@ class CommandRequire(Command):
         a = Assembler(metadata=self.metadata, search_dirs=self.search_dirs);
         return a.populate_template(arglist[0]);
 
-command_list = [ CommandDefault, CommandContent, CommandRequire ];
+
+class CommandInclude(Command):
+    def execute(self, arglist):
+        a = Assembler(metadata=self.metadata, search_dirs=self.search_dirs);
+        return a.populate_template(arglist[0], on_missing=(lambda x: ""));
+
+
+command_list = [ CommandDefault, CommandContent, CommandRequire, CommandInclude ];
 
