@@ -63,7 +63,7 @@ if __name__ == "__main__":
     assembled_page = assembler.populate_master_template();
 
     if not args.no_minify:
-        assembled_page = htmlmin.minify(assembled_page);
+        assembled_page = htmlmin.minify(assembled_page, remove_comments=True);
 
     if args.output:
         fd = open(args.output, 'w');
