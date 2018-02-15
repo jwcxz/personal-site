@@ -6,9 +6,28 @@ body {
     font-weight: 300;
 }
 
-.container {
-    max-width: 1000px;
+
+@media (min-width: 576px) {
+    .content {
+        max-width: 600px;
+    }
 }
+
+/*
+@media (min-width: 768px) {
+}
+*/
+
+@media (min-width: 992px) {
+    .content {
+        max-width: 900px;
+    }
+}
+
+/*
+@media (min-width: 1200px) {
+}
+*/
 
 
 .masthead {
