@@ -15,46 +15,38 @@ Summary
     digital hardware, and platform specifications.
 
 
-Education
----------
+Overview of Technical Skills
+----------------------------
 
-    Massachusetts Institute of Technology (Cambridge, MA)
-        2012: S.B. VI-2 (EE \& CS)
-        2013: M.Eng. VI-A (High-Speed Channel Emulation)
-
-
-Brief Summary of Technical Skills and Experience
-------------------------------------------------
-
-    System Architecture: translation of feature requirements to system design,
-        full-stack modeling, and custom silicon specification and
+    Embedded System Architecture:
+        translation of feature requirements into system design, full-stack
+        modeling, protocol design, custom silicon specification, silicon
         development-cycle support
 
-    Firmware (C, ASM; ARM (A and M), Picoblaze, AVR, AVR32):
+    Firmware (C, ASM; ARM (Cortex-A & M), Picoblaze, AVR...):
         core system infrastructure, sensor interface architecture, signal
         processing, power optimization, high-speed communication
 
     Software (C, Python, Bash, Make...):
-        build system architecture, unit and system-level testing
-        infrastructure, interprocessor communications, hardware abstraction
+        build-system architecture, simulation framework infrastructure,
+        interprocessor communications, hardware abstraction
 
-    FPGA Gateware (VHDL, Verilog; Lattice, Altera & Xilinx chips):
+    FPGA Gateware (VHDL, Verilog; Lattice, Altera & Xilinx parts):
         high-speed/high-bandwidth hardware interfaces, real-time signal
         processing, intelligent clock routing, soft-processors
 
 
-Selected Work Experience
-------------------------
+Selected Professional Experience
+--------------------------------
 
     Apple
         July 2013--Present
-        Current Position
 
         Responsible for architecture design, functional specification,
-        behavioral modeling, and delivery of new sensor stack solutions.
-        Deliverables include scalable firmware infrastructure design and
-        implementation, custom silicon specification, and system architecture
-        definition.
+        behavioral modeling, and spearheading team delivery of new embedded
+        sensing stack solutions.  Deliverables include scalable firmware
+        infrastructure design and implementation, custom silicon specification,
+        and system architecture definition.
 
 
     Lincoln Lab VI-A Fellowship
@@ -87,21 +79,29 @@ Selected Work Experience
         implementation on physical hardware.
 
 
-    Lockheed Martin/Hanscom Air Force Base AFCEA Fellowship
-        June--August 2008
-
-        Designed and implemented a prototype solution for managing and
-        verifying software licenses.  Developed vulnerability-inspection and
-        management add-on for IBM Security Systems.
-
-
     MIT Course Staff
         2009--2012
 
         Lab staff for MIT courses 6.01, 6.004, 6.091, and 6.111.
 
 
+Education
+---------
 
-                  Additional References available upon request
+    Massachusetts Institute of Technology (Cambridge, MA)
+        2012: S.B. VI-2 (EE \& CS)
+        2013: M.Eng. VI-A (High-Speed Channel Emulation)
+
+
+Patents
+-------
+
+    Dynamic adjustment of a sampling rate for an optical encoder, U.S. Patent
+    US9651405 (2017)
+
+    Methods and apparatus for rapid switching of hardware configurations with a
+    speed limited bus, U.S. Patent Pending US20160232124
+
+
 
                                                                         02/20/18
