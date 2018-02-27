@@ -22,8 +22,8 @@ project_list = [
         'projects': [
             {
                 'name': 'ACRIS',
-                'link': '/git/ACRIS',
-                'description': 'Automatically-Controlled Room Illumination System - an end-to-end room lighting system'
+                'link': 'acris',
+                'description': 'Advanced, Controllable Room Illumination System &mdash; an end-to-end room lighting system'
             },
 
             {
@@ -222,7 +222,7 @@ project_list = [
             {
                 'name': 'icsy',
                 'link': '/git/icsy',
-                'description': 'I can\'t Sleep Yet - a simple alarm to help its user up from naps'
+                'description': 'I can\'t Sleep Yet &mdash; a simple alarm to help its user up from naps'
             },
         ]
     },
