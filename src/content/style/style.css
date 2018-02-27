@@ -101,7 +101,7 @@ h2, h3, h4, h5, h6 {
 
 /* from: https://gist.github.com/joshbode/491ad0e678d456ea8ddc */
 /* automatic heading numbering */
-h1 { counter-reset: h2counter; }
+body { counter-reset: h2counter; }
 h2 { counter-reset: h3counter; }
 h3 { counter-reset: h4counter; }
 h4 { counter-reset: h5counter; }
