@@ -15,7 +15,7 @@ $(document).ready(function(){
         $('html, body').stop().animate({
             'scrollTop': scrollTop
         }, 500, 'swing', function () {
-            window.location.hash = target;
+            window.location.hash = this.hash;
         });
     });
 });
