@@ -75,6 +75,12 @@ project_list = [
             },
 
             {
+                'name': 'lpctrl',
+                'link': 'lpctrl',
+                'description': 'a framework for using the Novation Launchpad as a reactive user input device'
+            },
+
+            {
                 'name': 'hdctrlr',
                 'link': '/git/hdctrlr',
                 'description': 'a scroll wheel implemented with a hard drive platter'
