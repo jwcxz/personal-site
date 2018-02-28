@@ -95,8 +95,12 @@ h1 {
     font-size: 2em;
 }
 
-h2, h3, h4, h5, h6 {
+h2 {
     font-size: 1.5em;
+}
+
+h3, h4, h5, h6 {
+    font-size: 1.1em;
 }
 
 /* from: https://gist.github.com/joshbode/491ad0e678d456ea8ddc */
