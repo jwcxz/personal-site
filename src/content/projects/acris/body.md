@@ -23,8 +23,8 @@ The ACRIS project includes:
 The principle board, _ledctrlr_, can drive up to 5 RGB LEDs and communicates to
 the host via an RS-485 network.
 
-![ledctrlr board model##thumb](ledctrlr-board-model.png)
-![ledctrlr board##thumb](ledctrlr-board.jpg)
+![ledctrlr board model##thumb##gallery:boards](ledctrlr-board-model.png)
+![ledctrlr board##thumb##gallery:boards](ledctrlr-board.jpg)
 
 The project also includes boards for [other
 purposes](https://github.com/jwcxz/ACRIS/tree/master/boards/prj), such as
@@ -40,18 +40,18 @@ into the back of the unit, and RGB LEDs were mounted onto a simple piece of
 sheet metal.  The sconce's diffuser provides a pleasant smoothing of the
 resulting light output.
 
-![Example wall sconce assembly##thumb](wall-sconce-assembly.jpg)
-![Diffusion of a solid color##thumb](wall-sconce-solid.jpg)
-![Diffusion of a gradient##thumb](wall-sconce-gradient.jpg)
+![Example wall sconce assembly##thumb##gallery:lights](wall-sconce-assembly.jpg)
+![Diffusion of a solid color##thumb##gallery:lights](wall-sconce-solid.jpg)
+![Diffusion of a gradient##thumb##gallery:lights](wall-sconce-gradient.jpg)
 
 Other fixtures can easily be prototyped, such as a retrofitting of an IKEA light:
 
-![IKEA Fado assembly##thumb](fado-assembly.jpg)
-![IKEA Fado light##thumb](fado.jpg)
+![IKEA Fado assembly##thumb##gallery:lights](fado-assembly.jpg)
+![IKEA Fado light##thumb##gallery:lights](fado.jpg)
 
 Or even a sanded-and-etched piece of acrylic:
 
-![Acrylic plane diffuser##thumb](diffusion-plane.jpg)
+![Acrylic plane diffuser##thumb##gallery:lights](diffusion-plane.jpg)
 
 
 ## Firmware
