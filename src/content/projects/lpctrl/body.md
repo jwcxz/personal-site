@@ -12,6 +12,6 @@ plugins, which extend the framework.
 The plugin API provides functionality for plugins to receive input and draw to
 the controller.
 
-![Analog clock plugin##thumb](clock1.jpg)
-![Analog clock plugin##thumb](clock2.jpg)
-![Drawing plugin##thumb](draw.jpg)
+![Analog clock plugin##thumb##gallery:lp](clock1.jpg)
+![Analog clock plugin##thumb##gallery:lp](clock2.jpg)
+![Drawing plugin##thumb##gallery:lp](draw.jpg)
