@@ -34,7 +34,7 @@ project_list = [
 
             {
                 'name': 'CEREBRO',
-                'link': '/git/CEREBRO',
+                'link': 'cerebro',
                 'description': 'a brain activity visualizer implemented on an 8051'
             },
         ]

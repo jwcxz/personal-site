@@ -1,0 +1,15 @@
+{
+    "template": "default",
+
+    "content": {
+        "title": {
+            "type": "string",
+            "value": "CERERO"
+        },
+
+        "body": {
+            "type": "file",
+            "value": "body"
+        }
+    }
+}
