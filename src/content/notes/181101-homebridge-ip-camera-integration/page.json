@@ -1,0 +1,15 @@
+{
+    "template": "default",
+
+    "content": {
+        "title": {
+            "type": "string",
+            "value": "Integrating \"Panoraxy\" IP Cameras into HomeKit with Homebridge"
+        },
+
+        "body": {
+            "type": "file",
+            "value": "body"
+        }
+    }
+}
