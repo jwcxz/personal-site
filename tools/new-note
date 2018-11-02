@@ -1,0 +1,68 @@
+#!/bin/bash
+
+pushd "`dirname $0`" > /dev/null
+pushd "`git rev-parse --show-toplevel`" > /dev/null
+
+D_NOTES="src/content/notes"
+T_NOTES="resources/starters/note"
+T_PAGE="$T_NOTES/page.json"
+T_BODY="$T_NOTES/body.md"
+
+while [ $# -gt 0 ]; do
+    case $1 in
+        -a|--after-break)
+            AFTER_BREAK="$2"
+            shift 2
+            ;;
+        -b|--before-break)
+            BEFORE_BREAK="$2"
+            shift 2
+            ;;
+        -d|--date)
+            DATE="$2"
+            shift 2
+            ;;
+        -t|--title)
+            TITLE="$2"
+            shift 2
+            ;;
+        *)
+            if [[ "$PAGE_NAME" == "" ]]; then
+                PAGE_NAME="$1"
+                shift 1
+            else
+                echo "Syntax error" > /dev/stderr
+                exit 1
+            fi
+            ;;
+    esac
+done
+
+if [[ "$PAGE_NAME" == "" ]]; then
+    echo "Syntax error" > /dev/stderr
+    exit 1
+fi
+
+if [[ "$DATE" == "" ]]; then
+    DATE=`date '+%y%m%d'`
+fi
+
+PAGE=`cat "$T_PAGE"`
+BODY=`cat "$T_BODY"`
+
+if [[ "$TITLE" != "" ]]; then
+    PAGE=`echo "$PAGE" | sed "s/__title__/$TITLE/g"`
+fi
+
+if [[ "$AFTER_BREAK" != "" ]]; then
+    BODY=`echo "$BODY" | sed "s/__after_break__/$AFTER_BREAK/g"`
+fi
+
+if [[ "$BEFORE_BREAK" != "" ]]; then
+    BODY=`echo "$BODY" | sed "s/__before_break__/$BEFORE_BREAK/g"`
+fi
+
+NOTE="$D_NOTES/$DATE-$PAGE_NAME"
+mkdir -p "$NOTE"
+echo "$PAGE" > $NOTE/page.json
+echo "$BODY" > $NOTE/body.md

@@ -1,0 +1,16 @@
+{
+    "template": "default",
+
+    "content": {
+        "title": {
+            "type": "string",
+            "value": "__title__"
+        },
+
+        "body": {
+            "type": "file",
+            "value": "body"
+        }
+    }
+}
+
