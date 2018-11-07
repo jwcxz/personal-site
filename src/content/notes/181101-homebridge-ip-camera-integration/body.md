@@ -94,7 +94,7 @@ To interface this device with Homebridge, I performed the following steps:
   extremely slow transcoding speed (around 0.07x).
 
   The inclusion of "-vcodec h264_mmal" in the `source` key instructs FFmpeg to
-  use the accelerated decoder on the incoming stream.  The enclusion of the
+  use the accelerated decoder on the incoming stream.  The inclusion of the
   `"vcodec": "h264_omx"` entry instructs FFmpeg to use the accelerated encoder
   on the outgoing stream.
 
