@@ -11,8 +11,8 @@ Summary
     Passionate about architecting and delivering advanced digital solutions
     that provide meaningful benefit to human beings.  Experienced in creating
     optimal embedded sensor stacks---especially for atypically-constrained
-    systems---by leveraging a multi-disciplinary background designing firmware,
-    digital hardware, and platform specifications.
+    systems---by leveraging a multi-disciplinary background designing and
+    executing firmware, digital hardware, and platform specifications.
 
 
 Overview of Technical Skills
@@ -54,20 +54,18 @@ Selected Professional Experience
 
         Designed and built a high-speed channel emulator for airborne
         communication networks to complete an M.Eng. fellowship degree in June,
-        2013.  Created a digital architecture which interfaced FPGAs with fast,
-        high-bandwidth analog hardware in order to apply complex algorithms to
-        a signal stream in real-time.  Architected a full-stack framework for
-        emulating environmental effects on wireless signals and modeled Doppler
-        shifting.
+        2013.  Architected a solution that interfaced FPGAs with high-bandwidth
+        analog hardware and applied real-time algorithms to the signal stream.
+        Constructed a full-stack framework for emulating environmental effects
+        on wireless signals and modeled Doppler shifting.
 
 
     MITRE Corp. Internship Program
         June--August 2010
 
-        Prototyped hardware encryption concept device and demonstrated it to
-        funding authorities.  Wrote and live-tested debug software for an
-        aerial communications module.  Built FPGA test framework for a GPS
-        hardware interface.
+        Prototyped hardware encryption concept and demonstrated it to funding
+        authorities.  Built test infrastructure for an aerial communications
+        module.  Built FPGA test framework for a GPS hardware device.
 
 
     BAE Systems Internship Program
@@ -96,12 +94,15 @@ Education
 Patents
 -------
 
-    Dynamic adjustment of a sampling rate for an optical encoder, U.S. Patent
-    US9651405 (2017)
+    Wireless charging systems with multiple power receiving devices, U.S.
+    Patent 10,110,030 (2018)
 
     Methods and apparatus for rapid switching of hardware configurations with a
-    speed limited bus, U.S. Patent Pending US20160232124
+    speed limited bus, U.S. Patent 10,102,176 (2018)
+
+    Dynamic adjustment of a sampling rate for an optical encoder, U.S. Patent
+    9,651,405 (2017)
 
 
 
-                                                                        02/20/18
+                                                                        10/23/18
