@@ -8,11 +8,12 @@ https://joecolosimo.com/
 Summary
 -------
 
-    Passionate about architecting and delivering advanced digital solutions
-    that provide meaningful benefit to human beings.  Experienced in creating
-    optimal embedded sensor stacks---especially for atypically-constrained
-    systems---by leveraging a multi-disciplinary background designing and
-    executing firmware, digital hardware, and platform specifications.
+    Passionate about architecting and delivering advanced sensing solutions
+    that provide meaningful benefit to human beings.  Experienced in
+    constructing optimized embedded sensing stacks---especially for
+    atypically-constrained systems---by leveraging a multi-disciplinary
+    background designing and executing firmware, digital hardware, and platform
+    specifications.
 
 
 Overview of Technical Skills
@@ -31,7 +32,7 @@ Overview of Technical Skills
         build-system architecture, simulation framework infrastructure,
         interprocessor communications, hardware abstraction
 
-    FPGA Gateware (VHDL, Verilog; Lattice, Altera & Xilinx parts):
+    Digital Design for FPGAs (VHDL, Verilog; Lattice, Altera & Xilinx parts):
         high-speed/high-bandwidth hardware interfaces, real-time signal
         processing, intelligent clock routing, soft-processors
 
