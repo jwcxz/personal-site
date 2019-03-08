@@ -129,11 +129,10 @@ project_list = [
             },
 
             {
-                'name': 'vim-pandemic',
-                'link': '/git/vim-pandemic',
-                'description': 'a utility to manage Vim bundles'
+                'name': 'vim-instant-wavedrom',
+                'link': '/git/vim-instant-wavedrom',
+                'description': 'a live-updating WaveDrom renderer'
             },
-
 
             {
                 'name': 'vim-todo',
@@ -157,6 +156,12 @@ project_list = [
                 'name': 'vim-jsim',
                 'link': '/git/vim-jsim',
                 'description': 'syntax highlighting and tags configuration for 6.004\'s JSIM HDL'
+            },
+
+            {
+                'name': 'vim-pandemic',
+                'link': '/git/vim-pandemic',
+                'description': 'a utility to manage Vim bundles'
             },
 
             {
