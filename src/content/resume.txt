@@ -16,25 +16,26 @@ Summary
     specifications.
 
 
-Overview of Technical Skills
-----------------------------
+Principle Technical Skills
+--------------------------
 
     Embedded System Architecture:
-        translation of feature requirements into system design, full-stack
-        modeling, protocol design, custom silicon specification, silicon
-        development-cycle support
+        translation of feature requirements into system design, SoC & sensor
+        silicon architecture specification, full-stack modeling, end-to-end
+        optimization, interface protocol design
 
-    Firmware (C, ASM; ARM (Cortex-A & M), Picoblaze, AVR...):
+    Firmware (C & ASM, ARM systems):
         core system infrastructure, sensor interface architecture, signal
-        processing, power optimization, high-speed communication
+        processing, power optimization, high-speed communications, hardware
+        abstraction, silicon bringup
 
-    Software (C, Python, Bash, Make...):
-        build-system architecture, simulation framework infrastructure,
-        interprocessor communications, hardware abstraction
+    Software (C, Python, Make...):
+        build-system architecture for multi-target low-level code-bases,
+        simulation framework infrastructure, interprocessor communications
 
-    Digital Design for FPGAs (VHDL, Verilog; Lattice, Altera & Xilinx parts):
-        high-speed/high-bandwidth hardware interfaces, real-time signal
-        processing, intelligent clock routing, soft-processors
+    Digital Design for FPGAs (VHDL, Verilog):
+        high-bandwidth hardware interfaces, real-time signal processing, CPU
+        (Picoblaze, NIOS II) integration & firmware bringup
 
 
 Selected Professional Experience
@@ -55,10 +56,9 @@ Selected Professional Experience
 
         Designed and built a high-speed channel emulator for airborne
         communication networks to complete an M.Eng. fellowship degree in June,
-        2013.  Architected a solution that interfaced FPGAs with high-bandwidth
-        analog hardware and applied real-time algorithms to the signal stream.
-        Constructed a full-stack framework for emulating environmental effects
-        on wireless signals and modeled Doppler shifting.
+        2013.  Architected a full-stack solution that interfaced FPGAs with
+        high-bandwidth analog hardware and applied real-time algorithms to
+        emulate Doppler shifting.
 
 
     MITRE Corp. Internship Program
@@ -72,10 +72,9 @@ Selected Professional Experience
     BAE Systems Internship Program
         June--August 2009
 
-        Designed and implemented FPGA algorithms for sensor defect image
-        correction and data corruption detection in military night vision
-        goggle.  Modeled and simulated to prove correctness and tested
-        implementation on physical hardware.
+        Designed, implemented, and validated FPGA algorithms for sensor defect
+        image correction and data corruption detection in military night vision
+        goggle.
 
 
     MIT Course Staff
@@ -88,22 +87,24 @@ Education
 ---------
 
     Massachusetts Institute of Technology (Cambridge, MA)
-        2012: S.B. VI-2 (EE \& CS)
-        2013: M.Eng. VI-A (High-Speed Channel Emulation)
+        2012: B.S. Course VI-2 (Electrical Engineering & Computer Science)
+        2013: M.Eng. EE&CS _Channel Emulation_
+                (J. Francis Reintjes Excellence in 6-A Industrial Practice
+                Award)
 
 
 Patents
 -------
 
-    Wireless charging systems with multiple power receiving devices, U.S.
-    Patent 10,110,030 (2018)
+    Wireless charging systems with multiple power receiving devices,
+        U.S. Patents 10,110,030 (2018), 10,277,046 (2019), & 10,396,578 (2019)
 
     Methods and apparatus for rapid switching of hardware configurations with a
-    speed limited bus, U.S. Patent 10,102,176 (2018)
+        speed limited bus, U.S. Patent 10,102,176 (2018)
 
-    Dynamic adjustment of a sampling rate for an optical encoder, U.S. Patent
-    9,651,405 (2017)
+    Dynamic adjustment of a sampling rate for an optical encoder,
+        U.S. Patents 9,651,405 (2017) & 10,302,465 (2019)
 
 
 
-                                                                        02/23/19
+                                                                        08/30/19
