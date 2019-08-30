@@ -20,14 +20,9 @@ body {
 
 @media (min-width: 992px) {
     .content {
-        max-width: 900px;
+        max-width: 1200px;
     }
 }
-
-/*
-@media (min-width: 1200px) {
-}
-*/
 
 
 .masthead {
