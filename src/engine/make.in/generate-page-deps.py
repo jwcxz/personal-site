@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
 
 if __name__ == "__main__":
@@ -56,11 +56,11 @@ if __name__ == "__main__":
 
     # traverse through metadata to find build fragments
     deps = [];
-    if metadata.has_key('content'):
+    if 'content' in metadata.keys():
         for ctype in metadata['content'].keys():
             content = metadata['content'][ctype];
-            if content.has_key('type') and content['type'] == 'file':
-                if content.has_key('value'):
+            if 'type' in content.keys() and content['type'] == 'file':
+                if 'value' in content.keys():
                     deps.append(os.path.join(args.fragdir, "%s.frag.html" % content['value']));
 
     candidates = args.candidates.split(' ');

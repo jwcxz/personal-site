@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
 import math
 from notes.notes import NotesList
@@ -22,5 +22,5 @@ if __name__ == "__main__":
     nl = NotesList(args.notesdir);
     num_pages = nl.get_num_pages();
 
-    pages = [ "page/%d" % i for i in xrange(1, num_pages+1) ];
+    pages = [ "page/%d" % i for i in range(1, num_pages+1) ];
     sys.stdout.write(" ".join(pages));

@@ -3,6 +3,22 @@
 This repository houses the source of my personal website.
 
 
+## Prerequisites
+
+- [GNU Make](https://www.gnu.org/software/make/)
+- [Node.js](https://nodejs.org)
+- [Python 3](https://www.python.org)
+- [htmlmin](https://pypi.org/project/htmlmin/)
+- [ImageMagick](https://imagemagick.org)
+
+
+## Building
+
+1.  Install prerequisites.
+2.  `npm install`
+3.  `make`
+
+
 ## Theory of Operation
 
 This repository generates a static website from a set of markdown and HTML

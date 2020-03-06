@@ -51,7 +51,7 @@ def make_page_navbar(num_pages, current_page, base_url, label):
 
     navbar += make_page_button('&laquo;', prev_link, disabled=prev_d, aria_label='Previous', sr_hide=True, sr_label='Previous');
 
-    for p in xrange(1, num_pages+1):
+    for p in range(1, num_pages+1):
         if p == current_page:
             p_active = True;
         else:

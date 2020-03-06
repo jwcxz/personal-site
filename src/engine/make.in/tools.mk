@@ -1,7 +1,7 @@
 $(call mk_pre)
 
 T_RM := rm -rf
-T_PYTHON := $(shell which env) PYTHONPATH=$(DIR_COMMON) python2
+T_PYTHON := $(shell which env) PYTHONPATH=$(DIR_COMMON) python
 T_ASSEMBLE := $(T_PYTHON) $(DIR_ASSEMBLER)/assemble.py $(FLAGS_ASSEMBLER)
 T_GEN_DEPS_SCRIPT := $(DIR_MAKE)/generate-page-deps.py
 T_GEN_DEPS := $(T_PYTHON) $(T_GEN_DEPS_SCRIPT)

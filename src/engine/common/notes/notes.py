@@ -3,10 +3,6 @@ import json
 import math
 import os
 
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8');
-
 
 class Note:
     def __init__(self, notes_dir, name, content_fn=None):
@@ -109,7 +105,7 @@ class NotesList:
             lrange = (max(0, lrange[0]), min(lrange[1], len(self.note_dirs)));
 
         note_list = [];
-        for ni in xrange(lrange[0], lrange[1]):
+        for ni in range(lrange[0], lrange[1]):
             n = self.note_dirs[ni];
             note_list.append(self.notes[n]);
 

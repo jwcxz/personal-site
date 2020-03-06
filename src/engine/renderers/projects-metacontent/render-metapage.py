@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
 project_list_template = """
 <p>A list of selected projects follows.  Smaller efforts not listed here can be found on <a href="/git">GitHub</a>.</p>
