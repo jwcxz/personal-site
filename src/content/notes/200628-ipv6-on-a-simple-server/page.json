@@ -1,0 +1,15 @@
+{
+    "template": "default",
+
+    "content": {
+        "title": {
+            "type": "string",
+            "value": "Enabling IPv6 on a simple server"
+        },
+
+        "body": {
+            "type": "file",
+            "value": "body"
+        }
+    }
+}
