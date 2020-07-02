@@ -16,7 +16,7 @@ to configure each server's network.
 To enable a [dual-stack](https://whatismyipaddress.com/dual-stack) IPv4/IPv6
 configuration, I set up `/etc/systemd/network/10-wired.network` as follows:
 
-```
+```ini
 [Match]
 Name=<Interface Name>
 
@@ -82,7 +82,7 @@ being the most informative.
 
 I ultimately ended up replacing all of my existing `listen` directives with:
 
-```
+```plaintext
 listen 80;
 listen [::]:80;
 listen 443 ssl;
@@ -94,7 +94,7 @@ listen [::]:443 ssl;
 
 Finally, I added the server's IP address as a new `AAAA` record and updated the SPF record to include the `ip6` field:
 
-```
+```plaintext
 v=spf1 ip4:XXX.XXX.XXX.XXX ip6:YYYY:YYYY:YYYY:YYYY:YYYY:YYYY:YYYY:YYYY -all
 ```
 
