@@ -88,16 +88,25 @@ readFile(options.file, 'utf8', function (err, input) {
   }
 
   md = require('markdown-it')({
-    html: !options['no-html'],
+    html: !options.no_html,
     xhtmlOut: false,
     typographer: options.typographer,
     linkify: options.linkify
   });
 
-  md.use(require("markdown-it-anchor")); // Optional, but makes sense as you really want to link to something 
+  // use uslug to remove special characters
+  // (see markdown-it-anchor's README.md)
+  const uslug = require('uslug');
+  const uslugify = (s) => uslug(s);
+
+  md.use(require("markdown-it-anchor"), {
+    slugify: uslugify
+  });
+
   md.use(require("markdown-it-table-of-contents"), {
     includeLevel: [2,3,4,5,6],
-    listType: 'ol'
+    listType: 'ol',
+    slugify: uslugify
   });
 
   md.use(require('markdown-it-katex'));
