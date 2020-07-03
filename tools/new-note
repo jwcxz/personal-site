@@ -3,6 +3,15 @@
 pushd "`dirname $0`" > /dev/null
 pushd "`git rev-parse --show-toplevel`" > /dev/null
 
+
+USAGE="Syntax: $0 [-a|--after-break AFTER_BREAK_TEXT] [-b|--before-break BEFORE_BREAK_TEXT] [-d|--date DATE] [-t|--title TITLE] SLUG_TITLE
+
+This tool will create a new Notes page with the format YYMMDD-SLUG_TITLE.
+Other arguments are optional.  If DATE is not specified, it will be set to
+today.  If the other arguments are not specified, they will be left as their
+respective template values."
+
+
 D_NOTES="src/content/notes"
 T_NOTES="resources/starters/note"
 T_PAGE="$T_NOTES/page.json"
@@ -10,6 +19,10 @@ T_BODY="$T_NOTES/body.md"
 
 while [ $# -gt 0 ]; do
     case $1 in
+        -h|--help)
+            echo "$USAGE"
+            exit 0
+            ;;
         -a|--after-break)
             AFTER_BREAK="$2"
             shift 2
@@ -32,6 +45,7 @@ while [ $# -gt 0 ]; do
                 shift 1
             else
                 echo "Syntax error" > /dev/stderr
+                echo "$USAGE" > /dev/stderr
                 exit 1
             fi
             ;;
@@ -40,6 +54,7 @@ done
 
 if [[ "$PAGE_NAME" == "" ]]; then
     echo "Syntax error" > /dev/stderr
+    echo "$USAGE" > /dev/stderr
     exit 1
 fi
 
