@@ -202,6 +202,18 @@ table inet filter {
 ```
 
 
+## Packet Forwarding
+
+The server must enable packet forwarding.  One can do this by creating a file
+in `/etc/sysctl.d/` with the contents:
+
+```plaintext
+net.ipv4.ip_forward = 1
+```
+
+Analogous settings for IPv6 implementations also exist.
+
+
 ## DNS Configuration
 
 Unbound works nearly out of the box.  At a minimum, the VPN IP address should
