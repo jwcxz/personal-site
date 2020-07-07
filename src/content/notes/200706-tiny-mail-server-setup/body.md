@@ -93,10 +93,19 @@ I've only listed variables that differ from the defaults as of Postfix 3.5.4.
 # based on Postfix 3.5.4
 compatibility_level = 2
 
-# optionally, create a list of blacklist domains in the following format
-#       baddomain.tld   REJECT
-#   save to /etc/postfix/sender_access and run `postmap /etc/postfix/sender_access`
-smtpd_recipient_restrictions = check_sender_access hash:/etc/postfix/sender_access
+# Restrictions
+# smtpd_recipient_restrictions includes the following features:
+#   1.  blacklisk via check_sender_access
+#       create a list of blacklist domains in the following format
+#           baddomain.tld   REJECT
+#       save to /etc/postfix/sender_access and run `postmap /etc/postfix/sender_access`
+#   2.  prepend X-Original-To for LMTP and set lmtp_destination_recipient_limit
+#       see https://dovecot.dovecot.narkive.com/jYiqyZYr/differences-in-delivered-to-header-between-deliver-and-lmtp#post7
+#       /etc/postfix/recipient_access.pcre:
+#           /(.+)/ prepend X-Original-To: $1
+smtpd_recipient_restrictions =  check_sender_access hash:/etc/postfix/sender_access,
+                                check_recipient_access pcre:/etc/postfix/recipient_access.pcre
+lmtp_destination_recipient_limit = 1
 
 # Aliases
 alias_maps = hash:/etc/postfix/aliases
@@ -187,6 +196,14 @@ domains.  In my case, an attacker has been trying to sign up for an unprotected
 service by using fake emails from my domain name.  I reject all emails from
 that service.
 
+*Edit 2020-07-06*: Per
+[this discussion](https://dovecot.dovecot.narkive.com/jYiqyZYr/differences-in-delivered-to-header-between-deliver-and-lmtp#post7),
+I have added a `check_recipient_access` entry that adds an `X-Original-To`
+header containing the original address that the email was intended for.  Paired
+with the adjustment of the Dovecot configuration variable
+`lda_original_recipient_header`, this makes Sieve filtering based on address
+and "detail" (label after the `+` in an address) fairly simple.
+
 
 
 ## Dovecot
@@ -266,6 +283,11 @@ ssl_cipher_list = ALL:!DH:!kRSA:!SRP:!kDHd:!DSS:!aNULL:!eNULL:!EXPORT:!DES:!3DES
 ssl_prefer_server_ciphers = yes
 
 
+# conf.d/15-lda.conf
+
+lda_original_recipient_header = X-Original-To
+
+
 # conf.d/20-imap.conf
 
 protocol imap {
@@ -285,6 +307,10 @@ As a consequence, Dovecot provides a
 to Postfix for authentication and receives mail from Postfix
 [via LMTP](https://wiki.dovecot.org/HowTo/PostfixDovecotLMTP).  It enables an
 IMAP service for mail user agent connection.
+
+*Edit 2020-07-06*: The adjustment to `lda_original_recipient_header` (which
+also applies to LMTP) tells Dovecot to use the `X-Original-Header` to specify
+the original recipient.
 
 Following
 [Mozilla's TLS guide](https://wiki.mozilla.org/Security/Server_Side_TLS), the
