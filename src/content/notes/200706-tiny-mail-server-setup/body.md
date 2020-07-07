@@ -4,7 +4,8 @@ user or a few users.
 This setup uses the following projects to enable sending and receiving mail
 using SPF, DKIM, and DMARC for email authentication:
 
-* [Postfix](http://www.postfix.org) for mail transfer and delivery to maildrop
+* [Postfix](http://www.postfix.org) for mail transfer and delivery to Dovecot
+  via LMTP.
 
 * [Dovecot](https://dovecot.org) for IMAP access and SASL for Postfix with
   [Pigeonhole](https://pigeonhole.dovecot.org) for Sieve message filtering
