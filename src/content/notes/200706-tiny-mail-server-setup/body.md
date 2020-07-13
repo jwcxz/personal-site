@@ -548,17 +548,6 @@ record in `/etc/rspamd/dkim/keys/$domain.$selector.txt`.  Each domain's record
 must be added.
 
 
-
-## User Mail Directory
-
-I opted to place mail in `~/.mail`, so I created the appropriate inbox directory:
-
-```plaintext
-$ mkdir -p ~/.mail/{cur,new,tmp}
-$ mkdir -p ~/.mail/.{Sent,Drafts,Trash,Junk}/{cur,new,tmp}
-```
-
-
 ### DMARC Record
 
 Adding a DMARC record to each domain helps other mail servers understand what
@@ -574,6 +563,17 @@ checks.
 
 [This guide](https://postmarkapp.com/guides/dmarc) provides a helpful overview
 of DMARC.
+
+
+
+## User Mail Directory
+
+I opted to place mail in `~/.mail`, so I created the appropriate inbox directory:
+
+```plaintext
+$ mkdir -p ~/.mail/{cur,new,tmp}
+$ mkdir -p ~/.mail/.{Sent,Drafts,Trash,Junk}/{cur,new,tmp}
+```
 
 
 
