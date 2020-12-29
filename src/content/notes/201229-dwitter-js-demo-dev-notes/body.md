@@ -1,6 +1,6 @@
 [Dwitter](https://dwitter.net) is a site where users write JavaScript to create
 demos in 140 characters or fewer.  The site provides a 1920×1080 canvas and a
-few helper functions (e.g. `S(·)` returns `Math.sin(·)`.
+few helper functions (e.g. `S(...)` returns `Math.sin(...)`).
 
 I [have created a few "dweets"](https://www.dwitter.net/u/jwc), but I'm still
 very much learning and experimenting with interesting techniques.
@@ -14,7 +14,7 @@ and spins the rendered graph around:
     allowFullScreen="true"></iframe>
 
 Some notes on compression techniques I've seen or employed follow.  I will
-update these notes as I learn more techniques.
+update these notes as I learn additional ones.
 
 
 <!--break-->
@@ -30,6 +30,9 @@ the evaluated value of the final expression, so it makes sense to use it
 extensively (see
 [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator)
 for details).
+
+This is useful in a variety of situations where a single expression is
+expected.
 
 
 ## Optimal `for` statements
@@ -58,8 +61,8 @@ for(i=0;i<100;i++) {
 // before, but no spaces or newlines
 for(i=0;i<100;i++){S1;S2;S3;}
 
-// after (saves 8 characters)
-for(i=99;i--;S3)S1,S2
+// after (saves 7 characters)
+for(i=100;i--;S3)S1,S2
 ```
 
 
@@ -100,6 +103,33 @@ fillStyle=...,beginPath(),ellipse(...),fill()
 
 //after (saves 2 characters)
 beginPath(fillStyle=...),fill(ellipse(...))
+```
+
+
+## Inline variable assignment
+
+Variables can be assigned within other statements.  This technique is sometimes
+useful when an expression is used in multiple statements, particularly for
+function arguments.
+
+For example:
+
+```js
+// before
+a=4*S(t),x.fillRect(...,...,a,a)
+
+// after (saves 2 characters)
+x.fillRect(...,...,a=4*S(t),a)
+```
+
+However, in most other cases, this technique has net zero effect, for example:
+
+```js
+// before
+c=100-t,a=100+S(t)*c,d=C(t)*c
+
+// after (no savings)
+a=100+S(t)*(c=100-t),d=C(t)*c
 ```
 
 
