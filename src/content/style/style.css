@@ -178,3 +178,13 @@ h6:before {
 .notes-preview-break-continued {
     color: #AAAAAA;
 }
+
+
+/* from: https://www.quora.com/What-is-the-best-way-to-center-an-iframe */
+/* center iframes and add some margin below them */
+iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+}
