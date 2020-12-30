@@ -17,7 +17,7 @@ The code for it is as follows:
 // 140 characters (minus newline and indents added for readability)
 for(c.width|=i=q=r=s=.1;i<t;b=4*i/t,
             x.fillRect(960+16*(q*C(t)+s*S(t)),540+20*r,b,b),i+=.01)
-        o=r,r+=(q*(28-s)-r)/50,s+=(q*o-2*s)/50,q+=(o-q)/5
+    o=r,r+=(q*(28-s)-r)/50,s+=(q*o-2*s)/50,q+=(o-q)/5
 ```
 
 Some notes on compression techniques I've seen or employed follow.  I will
