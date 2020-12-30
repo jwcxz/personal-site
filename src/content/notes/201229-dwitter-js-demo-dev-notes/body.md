@@ -5,13 +5,20 @@ few helper functions (e.g. `S(...)` returns `Math.sin(...)`).
 I [have created a few "dweets"](https://www.dwitter.net/u/jwc), but I'm still
 very much learning and experimenting with interesting techniques.
 
-For example, here is a simple demo I created that computes a Lorenz attractor
-and spins the rendered graph around:
+For example, here is a screen recording of a
+[simple demo I created](https://www.dwitter.net/d/21060)
+that computes a Lorenz attractor and spins the rendered graph around:
 
-<iframe
-    width=500 height=600 frameBorder="0"
-    src="https://www.dwitter.net/e/21060"
-    allowFullScreen="true"></iframe>
+![Rotating Lorenz Attractor](/notes/201229-dwitter-js-demo-dev-notes/d-21060-rotating-lorenz-attractor.gif)
+
+The code for it is as follows:
+
+```js
+// 140 characters (minus newline and indents added for readability)
+for(c.width|=i=q=r=s=.1;i<t;b=4*i/t,
+            x.fillRect(960+16*(q*C(t)+s*S(t)),540+20*r,b,b),i+=.01)
+        o=r,r+=(q*(28-s)-r)/50,s+=(q*o-2*s)/50,q+=(o-q)/5
+```
 
 Some notes on compression techniques I've seen or employed follow.  I will
 update these notes as I learn additional ones.

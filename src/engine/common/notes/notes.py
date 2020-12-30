@@ -38,6 +38,7 @@ class Note:
         return self.name;
 
     def get_content_preview(self):
+        # TODO: modify relative paths (such as images)
         lines = [];
         content_break = False;
         for line in self.content.split("\n"):
