@@ -113,8 +113,6 @@ readFile(options.file, 'utf8', function (err, input) {
     slugify: uslugify
   });
 
-  md.use(require('markdown-it-katex'));
-
   md.use(require('markdown-it-video', { youtube: { width: 640, height: 390 } }));
 
   md.use(require('markdown-it-highlightjs'));

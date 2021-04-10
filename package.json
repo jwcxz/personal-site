@@ -21,7 +21,6 @@
     "markdown-it-anchor": "^7.1.0",
     "markdown-it-attrs": "^4.0.0",
     "markdown-it-highlightjs": "^3.4.0",
-    "markdown-it-katex": "^2.0.3",
     "markdown-it-table-of-contents": "^0.5.2",
     "markdown-it-video": "^0.6.3",
     "uslug": "^1.0.4"
