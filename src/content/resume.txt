@@ -11,7 +11,7 @@ Summary
     Passionate about architecting and delivering advanced sensing solutions
     that provide meaningful benefit to human beings.  Experienced in
     constructing optimized embedded sensing stacks---especially for
-    atypically-constrained systems---by leveraging a multi-disciplinary
+    atypically-constrained systems---by leveraging a multidisciplinary
     background designing and executing firmware, digital hardware, and platform
     specifications.
 
@@ -34,8 +34,7 @@ Principle Technical Skills
         simulation framework infrastructure, interprocessor communications
 
     Digital Design for FPGAs (VHDL, Verilog):
-        high-bandwidth hardware interfaces, real-time signal processing, CPU
-        (Picoblaze, NIOS II) integration & firmware bringup
+        high-bandwidth hardware interfaces, real-time DSP
 
 
 Selected Professional Experience
@@ -46,7 +45,7 @@ Selected Professional Experience
 
         Responsible for architecture design, functional specification,
         behavioral modeling, and spearheading team delivery of new embedded
-        sensing stack solutions.  Deliverables include scalable firmware
+        sensing solutions.  Deliverables include scalable firmware
         infrastructure design and implementation, custom silicon specification,
         and system architecture definition.
 
@@ -64,17 +63,15 @@ Selected Professional Experience
     MITRE Corp. Internship Program
         June--August 2010
 
-        Prototyped hardware encryption concept and demonstrated it to funding
-        authorities.  Built test infrastructure for an aerial communications
-        module.  Built FPGA test framework for a GPS hardware device.
+        Designed and prototyped a hardware encryption concept; demonstrated it
+        to funding authorities.
 
 
     BAE Systems Internship Program
         June--August 2009
 
-        Designed, implemented, and validated FPGA algorithms for sensor defect
-        image correction and data corruption detection in military night vision
-        goggle.
+        Designed, implemented, and validated FPGA algorithms for
+        thermal-imaging sensor defect correction and data corruption detection.
 
 
     MIT Course Staff
@@ -96,9 +93,11 @@ Education
 Patents
 -------
 
+    Wireless power system with battery charge indicators,
+        U.S. Patent 10,938,253 (2021)
+
     Wireless charging systems with multiple power receiving devices,
-        U.S. Patents 10,110,030 (2018), 10,277,046 (2019), 10,396,578 (2019), &
-        10,491,017 (2019)
+        U.S. Patents 10,110,030 (2018) & 4 others (2019--2020)
 
     Methods and apparatus for rapid switching of hardware configurations with a
         speed limited bus, U.S. Patent 10,102,176 (2018)
@@ -108,4 +107,4 @@ Patents
 
 
 
-                                                                        11/30/19
+                                                                  April 10, 2021
