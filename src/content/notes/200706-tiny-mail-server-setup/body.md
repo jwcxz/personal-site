@@ -122,7 +122,7 @@ mydestination = $myhostname, localhost.$mydomain, localhost, localhost.localdoma
 # TLS support
 smtpd_use_tls = yes
 smtpd_tls_loglevel = 1
-smtpd_tls_cert_file = /etc/letsencrypt/live/domain1.tld/cert.pem
+smtpd_tls_cert_file = /etc/letsencrypt/live/domain1.tld/fullchain.pem
 smtpd_tls_key_file  = /etc/letsencrypt/live/domain1.tld/privkey.pem
 smtpd_tls_session_cache_database = btree:/var/lib/postfix/smtpd_scache
 smtp_tls_session_cache_database  = btree:/var/lib/postfix/smtp_scache
@@ -163,6 +163,9 @@ submission inet n       -       n       -       -       smtpd
   -o smtpd_relay_restrictions=permit_sasl_authenticated,reject
   -o milter_macro_daemon_name=ORIGINATING
 ```
+
+*Edit 2021-09-29*: `smtpd_tls_cert_file` now points at the full chain instead
+of the individual cert.
 
 
 ### Supporting Multiple Domains
@@ -277,7 +280,7 @@ service auth {
 
 # conf.d/10-ssl.conf
 
-ssl_cert = </etc/letsencrypt/live/domain1.tld/cert.pem
+ssl_cert = </etc/letsencrypt/live/domain1.tld/fullchain.pem
 ssl_key  = </etc/letsencrypt/live/domain1.tld/privkey.pem
 ssl_min_protocol = TLSv1.2
 ssl_cipher_list = ALL:!DH:!kRSA:!SRP:!kDHd:!DSS:!aNULL:!eNULL:!EXPORT:!DES:!3DES:!MD5:!PSK:!RC4:!ADH:!LOW@STRENGTH
@@ -319,6 +322,10 @@ minimum protocol is set to `TLSv1.2`.  A more restrictive set of ciphers are
 allowed as well (in particular, no non-ECC Diffie-Hellman support).
 
 
+*Edit 2021-09-29*: `ssl_cert` now points at the full chain instead of the
+individual cert.
+
+
 ### User Authentication
 
 This configuration uses a simple password file for authentication.
@@ -349,11 +356,13 @@ your aliases in `/etc/postfix/aliases` to.
 
 ## Redis Configuration
 
+*Edit 2022-01-29*: The Rspamd-Redis connection now uses UNIX sockets.
+
 Per [Rspamd's Quick Start guide](https://rspamd.com/doc/quickstart.html), I
 adjusted a few Redis configuration settings slightly, namely setting a memory
-limit and policy and binding to both IPv4 and IPv6 localhost.  To do that, I
-added `include /etc/redis.d/local.conf` to the end of `/etc/redis.conf` and
-created the following `/etc/redis.d/local.conf`:
+limit and policy and enabling access via UNIX socket.  To do that, I added
+`include /etc/redis.d/local.conf` to the end of `/etc/redis.conf` and created
+the following `/etc/redis.d/local.conf`:
 
 ```plaintext
 # settings recommended by Rspamd
@@ -361,7 +370,8 @@ created the following `/etc/redis.d/local.conf`:
 
 maxmemory 500mb
 maxmemory-policy volatile-ttl
-bind 127.0.0.1 ::1
+unixsocket /var/run/redis/redis.sock
+unixsocketperm 770
 ```
 
 I also followed the suggestion of setting `vm.overcommit_memory = 1` with
@@ -462,24 +472,30 @@ reject = 500;
 The following files enable and configure their respective modules to use Redis
 as a backend.
 
+*Edit 2022-01-29*: The Rspamd-Redis connection now uses UNIX sockets.
+
+Rspamd connects to Redis via a UNIX socket (per
+[these instructions](https://github.com/rspamd/rspamd/issues/1905)).  To
+provide Rspamd access, its user must be added to the `redis` group via `usermod
+-a -G redis rspamd` (note that some installations may have different
+usernames for Rspamd).
+
 `local.d/classifier-bayes.conf`:
 
 ```plaintext
 backend = "redis";
-servers = "127.0.0.1";
-```
-
-`local.d/greylist.conf`:
-
-```plaintext
-servers = "127.0.0.1";
 ```
 
 `local.d/mx_check.conf`:
 
 ```plaintext
 enabled = true;
-servers = "127.0.0.1";
+```
+
+`local.d/redis.conf`:
+
+```plaintext
+servers = "/var/run/redis/redis.sock";
 ```
 
 
