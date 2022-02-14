@@ -88,24 +88,23 @@ in the Dovecot configuration.
 The following Postfix configuration enables SASL through Dovecot, delivers mail
 to Dovecot's LMTP service, enables TLS, and enables Rspamd as a milter.
 
-I've only listed variables that differ from the defaults as of Postfix 3.5.4.
+I've only listed variables that differ from the defaults as of Postfix 3.7.
 
 ```plaintext
-# based on Postfix 3.5.4
-compatibility_level = 2
+# based on Postfix 3.7.0
+compatibility_level = 3.7
 
 # Restrictions
 # smtpd_recipient_restrictions includes the following features:
-#   1.  blacklisk via check_sender_access
-#       create a list of blacklist domains in the following format
+#   1.  prohibit specific senders via check_sender_access
+#       create a list of prohibited domains in the following format
 #           baddomain.tld   REJECT
 #       save to /etc/postfix/sender_access and run `postmap /etc/postfix/sender_access`
-#   2.  prepend X-Original-To for LMTP and set lmtp_destination_recipient_limit
+#   2.  prepend X-Original-To for LMTP via check_recipient_access and set
+#       lmtp_destination_recipient_limit
 #       see https://dovecot.dovecot.narkive.com/jYiqyZYr/differences-in-delivered-to-header-between-deliver-and-lmtp#post7
-#       /etc/postfix/recipient_access.pcre:
-#           /(.+)/ prepend X-Original-To: $1
 smtpd_recipient_restrictions =  check_sender_access hash:/etc/postfix/sender_access,
-                                check_recipient_access pcre:/etc/postfix/recipient_access.pcre
+                                check_recipient_access pcre:{{/(.+)/ prepend X-Original-To: $$1}}
 lmtp_destination_recipient_limit = 1
 
 # Aliases
@@ -167,6 +166,9 @@ submission inet n       -       n       -       -       smtpd
 *Edit 2021-09-29*: `smtpd_tls_cert_file` now points at the full chain instead
 of the individual cert.
 
+*Edit 2022-02-13*: `smtpd_recipient_restrictions` uses Postfix 3.7's inline
+`pcre:{{}}` syntax rather than requiring a separate file.
+
 
 ### Supporting Multiple Domains
 
@@ -195,7 +197,7 @@ smtpd_relay_restrictions` reports to be:
 smtpd_relay_restrictions = ${{$compatibility_level} < {1} ? {} : {permit_mynetworks, permit_sasl_authenticated, defer_unauth_destination}}
 ```
 
-Optionally, you can use `smtpd_recipient_restrictions` to blacklist certain
+Optionally, you can use `smtpd_recipient_restrictions` to prohibit certain
 domains.  In my case, an attacker has been trying to sign up for an unprotected
 service by using fake emails from my domain name.  I reject all emails from
 that service.
@@ -313,8 +315,8 @@ to Postfix for authentication and receives mail from Postfix
 IMAP service for mail user agent connection.
 
 *Edit 2020-07-06*: The adjustment to `lda_original_recipient_header` (which
-also applies to LMTP) tells Dovecot to use the `X-Original-Header` to specify
-the original recipient.
+also applies to LMTP) tells Dovecot to use the `X-Original-To` header to
+specify the original recipient.
 
 Following
 [Mozilla's TLS guide](https://wiki.mozilla.org/Security/Server_Side_TLS), the
