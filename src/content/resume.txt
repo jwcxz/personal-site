@@ -74,12 +74,6 @@ Selected Professional Experience
         thermal-imaging sensor defect correction and data corruption detection.
 
 
-    MIT Course Staff
-        2009--2012
-
-        Lab staff for MIT courses 6.01, 6.004, 6.091, and 6.111.
-
-
 Education
 ---------
 
@@ -93,18 +87,24 @@ Education
 Patents
 -------
 
+    System and method for multiplexing an optical sensor,
+        U.S. Patent 11,571,135 (2023)
+
+    Wireless power systems with concurrently active data streams,
+        U.K. Patent 2,587,051 (2021) et al.
+
     Wireless power system with battery charge indicators,
-        U.S. Patent 10,938,253 (2021)
+        U.S. Patent 10,938,253 (2021) et al.
 
     Wireless charging systems with multiple power receiving devices,
-        U.S. Patents 10,110,030 (2018) & 4 others (2019--2020)
+        U.S. Patents 10,110,030 (2018) et al.
 
     Methods and apparatus for rapid switching of hardware configurations with a
         speed limited bus, U.S. Patent 10,102,176 (2018)
 
     Dynamic adjustment of a sampling rate for an optical encoder,
-        U.S. Patents 9,651,405 (2017) & 10,302,465 (2019)
+        U.S. Patents 9,651,405 (2017) et al.
 
 
 
-                                                                  April 10, 2021
+                                                                January 12, 2024
