@@ -107,6 +107,11 @@ smtpd_recipient_restrictions =  check_sender_access hash:/etc/postfix/sender_acc
                                 check_recipient_access pcre:{{/(.+)/ prepend X-Original-To: $$1}}
 lmtp_destination_recipient_limit = 1
 
+# SMTP smuggling protection
+# See https://www.postfix.org/smtp-smuggling.html
+# `yes` is the default for Postfix 3.9+
+smtpd_forbid_bare_newline = yes
+
 # Aliases
 alias_maps = hash:/etc/postfix/aliases
 alias_database = $alias_maps
@@ -168,6 +173,10 @@ of the individual cert.
 
 *Edit 2022-02-13*: `smtpd_recipient_restrictions` uses Postfix 3.7's inline
 `pcre:{{}}` syntax rather than requiring a separate file.
+
+*Edit 2024-01-12*: Added `smtpd_forbid_bare_newline` to protect against [SMTP
+smuggling](https://www.postfix.org/smtp-smuggling.html) attacks on Postfix
+3.8.4 (it's enabled by default on 3.9+).
 
 
 ### Supporting Multiple Domains
