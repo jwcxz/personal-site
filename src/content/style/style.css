@@ -73,6 +73,16 @@ body {
 }
 
 
+li p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+
 .img-thumbnail {
     max-width: 240px;
 }
