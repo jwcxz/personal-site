@@ -1,0 +1,15 @@
+{
+    "template": "default",
+
+    "content": {
+        "title": {
+            "type": "string",
+            "value": "Building a Leverless Arcade Controller via a DualSense Padhack"
+        },
+
+        "body": {
+            "type": "file",
+            "value": "body"
+        }
+    }
+}
