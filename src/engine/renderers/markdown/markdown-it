@@ -171,6 +171,12 @@ readFile(options.file, 'utf8', function (err, input) {
       '</a>';
   }
 
+  // add bootstrap's table class to tables
+  // see https://github.com/markdown-it/markdown-it/issues/117
+  md.renderer.rules.table_open = function(tokens, idx) {
+      return '<table class="table table-sm">';
+  };
+
   try {
     output = md.render(input);
 
