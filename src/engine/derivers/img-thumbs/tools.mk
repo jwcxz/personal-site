@@ -1,1 +1,1 @@
-T_DERIVE_RESIZED_IMG := convert
+T_DERIVE_RESIZED_IMG := magick convert
