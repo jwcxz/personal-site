@@ -103,7 +103,7 @@ compatibility_level = 3.7
 #   2.  prepend X-Original-To for LMTP via check_recipient_access and set
 #       lmtp_destination_recipient_limit
 #       see https://dovecot.dovecot.narkive.com/jYiqyZYr/differences-in-delivered-to-header-between-deliver-and-lmtp#post7
-smtpd_recipient_restrictions =  check_sender_access hash:/etc/postfix/sender_access,
+smtpd_recipient_restrictions =  check_sender_access lmdb:/etc/postfix/sender_access,
                                 check_recipient_access pcre:{{/(.+)/ prepend X-Original-To: $$1}}
 lmtp_destination_recipient_limit = 1
 
@@ -113,7 +113,7 @@ lmtp_destination_recipient_limit = 1
 smtpd_forbid_bare_newline = yes
 
 # Aliases
-alias_maps = hash:/etc/postfix/aliases
+alias_maps = lmdb:/etc/postfix/aliases
 alias_database = $alias_maps
 
 # Network
@@ -128,8 +128,8 @@ smtpd_use_tls = yes
 smtpd_tls_loglevel = 1
 smtpd_tls_cert_file = /etc/letsencrypt/live/domain1.tld/fullchain.pem
 smtpd_tls_key_file  = /etc/letsencrypt/live/domain1.tld/privkey.pem
-smtpd_tls_session_cache_database = btree:/var/lib/postfix/smtpd_scache
-smtp_tls_session_cache_database  = btree:/var/lib/postfix/smtp_scache
+smtpd_tls_session_cache_database = lmdb:/var/lib/postfix/smtpd_scache
+smtp_tls_session_cache_database  = lmdb:/var/lib/postfix/smtp_scache
 
 # SASL support
 smtpd_sasl_auth_enable = yes
@@ -177,6 +177,8 @@ of the individual cert.
 *Edit 2024-01-12*: Added `smtpd_forbid_bare_newline` to protect against [SMTP
 smuggling](https://www.postfix.org/smtp-smuggling.html) attacks on Postfix
 3.8.4 (it's enabled by default on 3.9+).
+
+*Edit 2024-08-15*: Changed `hash:` and `btree:` to `lmdb:`.
 
 
 ### Supporting Multiple Domains
