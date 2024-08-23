@@ -88,11 +88,11 @@ in the Dovecot configuration.
 The following Postfix configuration enables SASL through Dovecot, delivers mail
 to Dovecot's LMTP service, enables TLS, and enables Rspamd as a milter.
 
-I've only listed variables that differ from the defaults as of Postfix 3.7.
+I've only listed variables that differ from the defaults as of Postfix 3.9.
 
 ```plaintext
-# based on Postfix 3.7.0
-compatibility_level = 3.7
+# based on Postfix 3.9.0
+compatibility_level = 3.9
 
 # Restrictions
 # smtpd_recipient_restrictions includes the following features:
@@ -111,6 +111,19 @@ lmtp_destination_recipient_limit = 1
 # See https://www.postfix.org/smtp-smuggling.html
 # `yes` is the default for Postfix 3.9+
 smtpd_forbid_bare_newline = yes
+
+# Recognized local recipients
+# The default value includes both unix:passwd.byname and $alias_maps.  The
+# former causes Postfix to initially recognize any system user account, but
+# when trying to deliver mail to an account that won't accept it (e.g. system
+# accounts), Dovecot will return a failure, causing Postfix to bounce the
+# incoming email instead of rejecting it.  This, in turn, creates a backscatter
+# pathway for spammers (e.g. if a system has a `git` system account that
+# doesn't receive mail, a spammer can send an email with a spoofed From address
+# to git@domain.tld and Postfix would send a bounce email to the spoofed From
+# address).  The solution is to only recognize the aliases in /etc/aliases.
+# Make sure to put a self-reference in /etc/aliases (`<user>: <user>`).
+local_recipient_maps = $alias_maps
 
 # Aliases
 alias_maps = lmdb:/etc/postfix/aliases
@@ -179,6 +192,9 @@ smuggling](https://www.postfix.org/smtp-smuggling.html) attacks on Postfix
 3.8.4 (it's enabled by default on 3.9+).
 
 *Edit 2024-08-15*: Changed `hash:` and `btree:` to `lmdb:`.
+
+*Edit 2024-08-23*: Changed `local_recipient_maps` from its default value to
+just `$alias_maps` to prevent backscatter using system accounts.
 
 
 ### Supporting Multiple Domains
